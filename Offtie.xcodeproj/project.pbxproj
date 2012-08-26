@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
+		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
+		F2FB92EF15EA705600A5DE37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */; };
+		F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92F315EA705600A5DE37 /* InfoPlist.strings */; };
+		F2FB92F715EA705600A5DE37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB92F615EA705600A5DE37 /* main.m */; };
+		F2FB92FB15EA705600A5DE37 /* OfftieAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */; };
+		F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */; };
+		F2FB930115EA705600A5DE37 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */; };
+		F2FB930415EA705600A5DE37 /* OfftieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB930315EA705600A5DE37 /* OfftieViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F2FB92E615EA705600A5DE37 /* Offtie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FB92EA15EA705600A5DE37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F2FB92EC15EA705600A5DE37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F2FB92F215EA705600A5DE37 /* Offtie-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Offtie-Info.plist"; sourceTree = "<group>"; };
+		F2FB92F415EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2FB92F615EA705600A5DE37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F2FB92F815EA705600A5DE37 /* Offtie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offtie-Prefix.pch"; sourceTree = "<group>"; };
+		F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfftieAppDelegate.h; sourceTree = "<group>"; };
+		F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfftieAppDelegate.m; sourceTree = "<group>"; };
+		F2FB92FD15EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F2FB930015EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		F2FB930215EA705600A5DE37 /* OfftieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfftieViewController.h; sourceTree = "<group>"; };
+		F2FB930315EA705600A5DE37 /* OfftieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfftieViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2FB92E315EA705600A5DE37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */,
+				F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */,
+				F2FB92EF15EA705600A5DE37 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F2FB92DB15EA705600A5DE37 = {
+			isa = PBXGroup;
+			children = (
+				F2FB92F015EA705600A5DE37 /* Offtie */,
+				F2FB92E915EA705600A5DE37 /* Frameworks */,
+				F2FB92E715EA705600A5DE37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2FB92E715EA705600A5DE37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2FB92E615EA705600A5DE37 /* Offtie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2FB92E915EA705600A5DE37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2FB92EA15EA705600A5DE37 /* UIKit.framework */,
+				F2FB92EC15EA705600A5DE37 /* Foundation.framework */,
+				F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2FB92F015EA705600A5DE37 /* Offtie */ = {
+			isa = PBXGroup;
+			children = (
+				F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */,
+				F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */,
+				F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */,
+				F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */,
+				F2FB930215EA705600A5DE37 /* OfftieViewController.h */,
+				F2FB930315EA705600A5DE37 /* OfftieViewController.m */,
+				F2FB92F115EA705600A5DE37 /* Supporting Files */,
+			);
+			path = Offtie;
+			sourceTree = "<group>";
+		};
+		F2FB92F115EA705600A5DE37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2FB92F215EA705600A5DE37 /* Offtie-Info.plist */,
+				F2FB92F315EA705600A5DE37 /* InfoPlist.strings */,
+				F2FB92F615EA705600A5DE37 /* main.m */,
+				F2FB92F815EA705600A5DE37 /* Offtie-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2FB92E515EA705600A5DE37 /* Offtie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2FB930715EA705600A5DE37 /* Build configuration list for PBXNativeTarget "Offtie" */;
+			buildPhases = (
+				F2FB92E215EA705600A5DE37 /* Sources */,
+				F2FB92E315EA705600A5DE37 /* Frameworks */,
+				F2FB92E415EA705600A5DE37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Offtie;
+			productName = Offtie;
+			productReference = F2FB92E615EA705600A5DE37 /* Offtie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2FB92DD15EA705600A5DE37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Offtie;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Dmytro Gladkyi";
+			};
+			buildConfigurationList = F2FB92E015EA705600A5DE37 /* Build configuration list for PBXProject "Offtie" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F2FB92DB15EA705600A5DE37;
+			productRefGroup = F2FB92E715EA705600A5DE37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2FB92E515EA705600A5DE37 /* Offtie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2FB92E415EA705600A5DE37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */,
+				F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */,
+				F2FB930115EA705600A5DE37 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2FB92E215EA705600A5DE37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2FB92F715EA705600A5DE37 /* main.m in Sources */,
+				F2FB92FB15EA705600A5DE37 /* OfftieAppDelegate.m in Sources */,
+				F2FB930415EA705600A5DE37 /* OfftieViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F2FB92F315EA705600A5DE37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2FB92F415EA705600A5DE37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2FB92FD15EA705600A5DE37 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2FB930015EA705600A5DE37 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2FB930515EA705600A5DE37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2FB930615EA705600A5DE37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2FB930815EA705600A5DE37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
+				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F2FB930915EA705600A5DE37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
+				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2FB92E015EA705600A5DE37 /* Build configuration list for PBXProject "Offtie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2FB930515EA705600A5DE37 /* Debug */,
+				F2FB930615EA705600A5DE37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2FB930715EA705600A5DE37 /* Build configuration list for PBXNativeTarget "Offtie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2FB930815EA705600A5DE37 /* Debug */,
+				F2FB930915EA705600A5DE37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2FB92DD15EA705600A5DE37 /* Project object */;
+}
