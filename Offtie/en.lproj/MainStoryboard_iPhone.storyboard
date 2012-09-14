@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2829" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="g9x-Vs-688">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="nRj-yY-Z8I">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1914"/>
+        <deployment defaultVersion="1296" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
         <!--Offtie Table View Controller - Tweets-->
@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController title="Tweets" id="g9x-Vs-688" customClass="OfftieTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Or6-dn-UEf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -32,17 +32,18 @@
                             <outlet property="delegate" destination="g9x-Vs-688" id="jHF-kK-whQ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="g7j-OQ-VVC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4n-P2-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="50"/>
+            <point key="canvasLocation" x="597" y="50"/>
         </scene>
         <!--Time Line View Controller-->
         <scene sceneID="OuR-sW-A0G">
             <objects>
                 <tableViewController id="xaq-AH-eGQ" customClass="TimeLineViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fEO-bx-ELP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -65,7 +66,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCu-sI-D00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="545" y="50"/>
+            <point key="canvasLocation" x="1071" y="50"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Nz-Ox-xV8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdY-ck-M3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="nRj-yY-Z8I" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1rs-oY-e3b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="g9x-Vs-688" kind="relationship" relationship="rootViewController" id="ujQ-Lt-l4x"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="71" y="50"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

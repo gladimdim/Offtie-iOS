@@ -146,6 +146,7 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

@@ -12,4 +12,6 @@
 
 @interface TimeLineViewController : UITableViewController
 @property (strong, nonatomic) ACAccount *twitterAccount;
+@property (strong, nonatomic) NSArray *twitterTimeline;
+@property (assign, nonatomic) UIFont *textFont;
 @end
