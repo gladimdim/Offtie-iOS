@@ -7,6 +7,7 @@
 //
 
 #import "TimeLineViewController.h"
+#import "PageViewController.h"
 
 @interface TimeLineViewController ()
 
@@ -70,7 +71,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -85,7 +85,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.twitterTimeline.count;
 }
@@ -107,6 +106,26 @@
     cell.detailTextLabel.text = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"user"] valueForKey:@"name"];
     // Configure the cell...
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.navigationController performSegueWithIdentifier:@"showWebView" sender:self];
+    
+   
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
+    if (urlArray.count > 0) {
+        NSString *url = [urlArray objectAtIndex:0];
+        if (url) {
+            NSLog(@"url: %@", url);
+            PageViewController *pageView = (PageViewController *) segue.destinationViewController;
+            UIWebView *webView = pageView.webView;
+            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+            [webView loadRequest:request];
+        }
+    }
 }
 
 /*
@@ -148,17 +167,5 @@
 }
 */
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 @end
