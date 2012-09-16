@@ -14,6 +14,7 @@
 
 @implementation PageViewController
 @synthesize webView;
+@synthesize urlString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.webView reload];
 	// Do any additional setup after loading the view.
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]];
+    [self.webView loadRequest:request];
+    NSLog(@"request: %@", self.webView.request);
 }
 
 - (void)viewDidUnload

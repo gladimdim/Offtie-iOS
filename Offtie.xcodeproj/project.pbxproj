@@ -10,6 +10,7 @@
 		F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
 		F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA815EA8CE400C99909 /* Twitter.framework */; };
 		F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */; };
+		F25EE4CA1606402100F8EFB6 /* DummyTimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F25EE4C91606402100F8EFB6 /* DummyTimeLineTableViewController.m */; };
 		F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC4A11604888300DC35E3 /* PageViewController.m */; };
 		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
 		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
@@ -28,6 +29,8 @@
 		F23A0BA815EA8CE400C99909 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F23A0BAA15EAA14C00C99909 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
 		F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
+		F25EE4C81606402100F8EFB6 /* DummyTimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyTimeLineTableViewController.h; sourceTree = "<group>"; };
+		F25EE4C91606402100F8EFB6 /* DummyTimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyTimeLineTableViewController.m; sourceTree = "<group>"; };
 		F2DAC4A01604888300DC35E3 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		F2DAC4A11604888300DC35E3 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		F2FB92E615EA705600A5DE37 /* Offtie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +112,8 @@
 				F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */,
 				F2DAC4A01604888300DC35E3 /* PageViewController.h */,
 				F2DAC4A11604888300DC35E3 /* PageViewController.m */,
+				F25EE4C81606402100F8EFB6 /* DummyTimeLineTableViewController.h */,
+				F25EE4C91606402100F8EFB6 /* DummyTimeLineTableViewController.m */,
 			);
 			path = Offtie;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				F2FB930C15EA70C700A5DE37 /* OfftieTableViewController.m in Sources */,
 				F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */,
 				F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */,
+				F25EE4CA1606402100F8EFB6 /* DummyTimeLineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

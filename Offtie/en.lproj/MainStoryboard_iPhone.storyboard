@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="nRj-yY-Z8I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="bDE-nL-hFt">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -23,7 +23,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="xaq-AH-eGQ" kind="push" identifier="ShowAccountTimeLine" id="QmR-uR-Sh2"/>
+                                    <segue destination="xaq-AH-eGQ" kind="push" identifier="ShowAccountTimeLine" id="LVc-2w-7R5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -36,7 +36,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4n-P2-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="597" y="50"/>
+            <point key="canvasLocation" x="1045" y="50"/>
         </scene>
         <!--Time Line View Controller-->
         <scene sceneID="OuR-sW-A0G">
@@ -56,7 +56,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="IBS-Lr-RoN" kind="push" identifier="showWebView" id="uGb-qD-kcX"/>
+                                    <segue destination="IBS-Lr-RoN" kind="push" identifier="ShowWebView" id="kh6-mk-kBA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +69,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCu-sI-D00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="50"/>
+            <point key="canvasLocation" x="1533" y="50"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="RIa-sT-NKa">
@@ -80,10 +80,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="KGY-SP-mfu">
+                            <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" id="KGY-SP-mfu">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -94,7 +95,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1411" y="50"/>
+            <point key="canvasLocation" x="1937" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Nz-Ox-xV8">
@@ -112,7 +113,58 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="71" y="50"/>
+            <point key="canvasLocation" x="579" y="50"/>
+        </scene>
+        <!--Dummy Time Line Table View Controller-->
+        <scene sceneID="1yZ-MN-dbB">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krP-BH-TpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="396-7R-HA6" customClass="DummyTimeLineTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mOK-cT-dg8">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellDummy" id="mTz-ue-MTU">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="IBS-Lr-RoN" kind="push" identifier="ShowDummyPages" id="1ND-UV-ABg"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="396-7R-HA6" id="EU8-u9-hbg"/>
+                            <outlet property="delegate" destination="396-7R-HA6" id="rFp-7n-Q8w"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="XFj-x2-jLo"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1571" y="618"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d4Z-YD-hRH">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgS-Qu-ugm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="bDE-nL-hFt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i3P-Il-jNv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="396-7R-HA6" kind="relationship" relationship="rootViewController" id="L1g-dI-BaZ"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1045" y="618"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -120,4 +172,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1ND-UV-ABg"/>
+    </inferredMetricsTieBreakers>
 </document>

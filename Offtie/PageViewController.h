@@ -11,5 +11,5 @@
 @interface PageViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
+@property (copy, readwrite) NSString *urlString;
 @end

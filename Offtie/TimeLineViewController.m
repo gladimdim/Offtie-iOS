@@ -48,13 +48,15 @@
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         NSLog(@"get");
         NSLog(@"response: %d", [urlResponse statusCode]);
-        NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONWritingPrettyPrinted error:nil];
-        if (timeline) {
-            self.twitterTimeline = timeline;
-            [self.tableView reloadData];
+        if ([urlResponse statusCode] == 200) {
+            NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONWritingPrettyPrinted error:nil];
+            if (timeline) {
+                self.twitterTimeline = timeline;
+                [self.tableView reloadData];
         }
         NSLog(@"count: %i", timeline.count);
         NSLog(@"first: %@", [timeline objectAtIndex:0]);
+        }
     }];
     
     self.textFont = [UIFont boldSystemFontOfSize:15.0f]; // [UIFont fontWithName:@"Arial" size:15.0f];
@@ -109,9 +111,7 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController performSegueWithIdentifier:@"showWebView" sender:self];
-    
-   
+    [self performSegueWithIdentifier:@"ShowWebView" sender:self];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -121,9 +121,8 @@
         if (url) {
             NSLog(@"url: %@", url);
             PageViewController *pageView = (PageViewController *) segue.destinationViewController;
-            UIWebView *webView = pageView.webView;
-            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-            [webView loadRequest:request];
+            pageView.urlString = url;
+            //[webView loadRequest:request];
         }
     }
 }
