@@ -13,5 +13,6 @@
 @interface TimeLineViewController : UITableViewController
 @property (strong, nonatomic) ACAccount *twitterAccount;
 @property (strong, nonatomic) NSArray *twitterTimeline;
+- (IBAction)btnDownloadTouched:(id)sender;
 @property (assign, nonatomic) UIFont *textFont;
 @end

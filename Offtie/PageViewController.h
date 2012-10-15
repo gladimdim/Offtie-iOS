@@ -12,4 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (copy, readwrite) NSString *urlString;
+@property (copy, readwrite) NSString *stringBodyHtml;
 @end

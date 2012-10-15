@@ -8,6 +8,7 @@
 
 #import "TimeLineViewController.h"
 #import "PageViewController.h"
+#import "TweetsHTMLString.h"
 
 @interface TimeLineViewController ()
 
@@ -28,19 +29,13 @@
     return self;
 }
 
+-(void) dataFromTwitterReceived {
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:@"count" forKey:@"count"];
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
@@ -52,14 +47,26 @@
             NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONWritingPrettyPrinted error:nil];
             if (timeline) {
                 self.twitterTimeline = timeline;
-                [self.tableView reloadData];
-        }
-        NSLog(@"count: %i", timeline.count);
-        NSLog(@"first: %@", [timeline objectAtIndex:0]);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }
+            NSLog(@"count: %i", timeline.count);
+            NSLog(@"first: %@", [timeline objectAtIndex:0]);
         }
     }];
     
     self.textFont = [UIFont boldSystemFontOfSize:15.0f]; // [UIFont fontWithName:@"Arial" size:15.0f];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 
@@ -78,11 +85,14 @@
 }
 
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
+   /* NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     
     CGSize constrains = CGSizeMake(280.0f, MAXFLOAT);
     CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:UILineBreakModeWordWrap];
+    NSLog(@"return size: %f", size.height + 30);
     return size.height + 30;
+    */
+    return 106;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -93,6 +103,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"entering cellForRow");
     static NSString *CellIdentifier = @"CellTimeLine";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -167,4 +178,10 @@
 */
 
 
+- (IBAction)btnDownloadTouched:(id)sender {
+    for (int i = 0; i < self.twitterTimeline.count; i++) {
+        NSString *fileName = [[self.twitterTimeline objectAtIndex:i] valueForKey:@"id"];
+        NSLog(@"id: %@", fileName);
+    }
+}
 @end
