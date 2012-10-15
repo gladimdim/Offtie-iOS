@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SavedTimeline.h"
 
 @interface PageViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (copy, readwrite) NSString *urlString;
-@property (copy, readwrite) NSString *stringBodyHtml;
+@property SavedTimeline *savedTweet;
 @end

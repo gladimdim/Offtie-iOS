@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
 #import <Twitter/Twitter.h>
+#import "Downloader.h"
 
 @interface TimeLineViewController : UITableViewController
 @property (strong, nonatomic) ACAccount *twitterAccount;
 @property (strong, nonatomic) NSArray *twitterTimeline;
 - (IBAction)btnDownloadTouched:(id)sender;
 @property (assign, nonatomic) UIFont *textFont;
+@property (strong) TimelineUIDocument *timelineDoc;
 @end
