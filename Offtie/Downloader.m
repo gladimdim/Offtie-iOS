@@ -37,6 +37,7 @@
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString *htmlString = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     if (htmlString == nil) {
+        NSLog(@"Empty html returned for url: %@", self.url);
         return;
     }
     else {

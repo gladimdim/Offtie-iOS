@@ -23,6 +23,7 @@
 
 
 #define TIMELINE_FILENAME @"timeline"
+#define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
 /*- (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,6 +52,7 @@
 }
 
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -69,7 +71,7 @@
     NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     CGSize constrains = CGSizeMake(280.0f, MAXFLOAT);
     CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:UILineBreakModeWordWrap];
-    NSLog(@"return size: %f", size.height + 30);
+    //NSLog(@"return size: %f", size.height + 30);
     return size.height + 30;
 }
 
@@ -101,6 +103,24 @@
     [self performSegueWithIdentifier:@"ShowWebView" sender:self];
 }
 
+-(NSDate *) updateLastDownloadDateTime {
+
+    NSDate *currentDate = [NSDate date];
+    NSLog(@"date update: %@", currentDate);
+    [[NSUserDefaults standardUserDefaults] setObject:currentDate forKey:LAST_DOWNLOAD_DATE_TIME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    return currentDate;
+}
+
+-(NSDate *) getLastDownloadDateTime {
+    NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_DOWNLOAD_DATE_TIME];
+    return  lastUpdate;
+}
+
+-(void) updateBarButtonWithLastDownloadTime {
+    self.barBtnStatus.title = [NSString stringWithFormat:@"Updated on: %@", [NSDateFormatter localizedStringFromDate:[self getLastDownloadDateTime] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]];
+}
+
 -(void) checkOnlineOfflineMode {
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:TIMELINE_FILENAME]];
@@ -114,7 +134,7 @@
             if (timeline) {
                 self.twitterTimeline = timeline;
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.barBtnStatus.title = @"Offline files available";
+                    [self updateBarButtonWithLastDownloadTime];
                     [self.tableView reloadData];
                 });
                 
@@ -133,6 +153,7 @@
 -(void) downloadTwitterTimeLine {
     self.counterOfDownloads = 0;
     self.amountOfTweetsWithURL = 0;
+    
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:@"count" forKey:@"count"];
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
@@ -146,12 +167,14 @@
             if (timeline) {
                 self.twitterTimeline = timeline;
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    //update last download time
+                    [self updateLastDownloadDateTime];
                     [self.tableView reloadData];
                     [self saveTweetsToDisk];
                 });
             }
-            NSLog(@"count: %i", timeline.count);
-            NSLog(@"first: %@", [timeline objectAtIndex:0]);
+          //  NSLog(@"count: %i", timeline.count);
+          //  NSLog(@"first: %@", [timeline objectAtIndex:0]);
         }
     }];
     
@@ -194,7 +217,7 @@
         if (urlArray.count > 0) {
             NSString *url = [urlArray objectAtIndex:0];
             if (url) {
-                NSLog(@"url: %@", url);
+                //NSLog(@"url: %@", url);
                 Downloader *downloader = [[Downloader alloc] init];
                 downloader.url = [NSURL URLWithString:url];
                 downloader.id = [[[self.twitterTimeline objectAtIndex:i] valueForKey:@"id"] stringValue];
@@ -213,6 +236,9 @@
         //update barbutton title to reflect progress of downloads
         self.counterOfDownloads++;
         self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];
+        if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
+            [self updateBarButtonWithLastDownloadTime];
+        }
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
 
@@ -220,6 +246,7 @@
 }
 
 - (IBAction)btnDownloadTouched:(id)sender {
+    self.barBtnStatus.title = @"Preparing to update";
     //downloading new timeline. If success tweets are autostored to disk
     [self downloadTwitterTimeLine];
 }

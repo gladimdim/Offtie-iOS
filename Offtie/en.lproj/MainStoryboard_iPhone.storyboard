@@ -86,8 +86,8 @@
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="KTN-yh-hm7"/>
-                                    <barButtonItem width="210" style="plain" id="zm0-Yv-fJg"/>
+                                    <barButtonItem width="19" style="plain" systemItem="fixedSpace" id="KTN-yh-hm7"/>
+                                    <barButtonItem width="259" style="plain" id="zm0-Yv-fJg"/>
                                 </items>
                             </toolbar>
                         </subviews>
