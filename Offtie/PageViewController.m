@@ -32,6 +32,10 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    //strange but htmlstring is actually a NSSet with one object - NSString.
+    //when htmlstring is saved to disk it is still NSString, but when read back
+    //it is read as NSSet. I did not find reason for this yet.
+#warning figure out why htmlString is not NSString but NSSet
     NSSet *set = (NSSet *) self.htmlString;
     NSEnumerator *enumerator = [set objectEnumerator];
     id value;
