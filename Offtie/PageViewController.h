@@ -12,5 +12,5 @@
 @interface PageViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property SavedTimeline *savedTweet;
+@property (strong) NSString *htmlString; 
 @end

@@ -13,14 +13,14 @@
 -(id) initWithCoder:(NSCoder *)aDecoder {
     if (self = [super init]) {
         self.timelineData = [aDecoder decodeObjectForKey:@"timelineData"];
-        self.arrayOfHTMLPagesDicts = [aDecoder decodeObjectForKey:@"arrayOfHTMLPagesDicts"];
+        self.setOfHTMLPagesById = [aDecoder decodeObjectForKey:@"setOfHTMLPagesById"];
     }
     return self;
 }
 
 -(void) encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.timelineData forKey:@"timelineData"];
-    [aCoder encodeObject:self.arrayOfHTMLPagesDicts forKey:@"arrayOfHTMLPagesDicts"];
+    [aCoder encodeObject:self.setOfHTMLPagesById forKey:@"setOfHTMLPagesById"];
 }
 
 @end

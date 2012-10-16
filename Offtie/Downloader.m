@@ -13,6 +13,9 @@
 
 
 -(void) saveTweet {
+    if (self.url == nil) {
+        return;
+    }
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     if (connection ) {
@@ -33,7 +36,12 @@
 
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString *htmlString = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
-    [self.delegate downloadedDict:[[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:htmlString] forKeys:[NSArray arrayWithObject:self.id]]];
+    if (htmlString == nil) {
+        return;
+    }
+    else {
+        [self.delegate downloadedDict:[[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:htmlString] forKeys:[NSArray arrayWithObject:self.id]]];
+    }
 }
 
 @end

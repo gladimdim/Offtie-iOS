@@ -12,6 +12,7 @@
 
 @interface TimeLineViewController ()
 @property (strong) NSMutableArray *arrayOfHTMLDicts;
+@property (strong) NSData *twitterResponseData;
 @end
 
 @implementation TimeLineViewController 
@@ -104,10 +105,9 @@
 -(void) checkOnlineOfflineMode {
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:TIMELINE_FILENAME]];
-    
-    
+
     self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
-    
+
     [self.timelineDoc openWithCompletionHandler:^(BOOL success){
         NSLog(@"opened timeline file: %@", success ? @"YES" : @"NO");
         if (success) {
@@ -135,6 +135,7 @@
         NSLog(@"response: %d", [urlResponse statusCode]);
         NSLog(@"response size: %u", [responseData length]);
         if ([urlResponse statusCode] == 200) {
+            self.twitterResponseData = responseData;
             NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONWritingPrettyPrinted error:nil];
             if (timeline) {
                 self.twitterTimeline = timeline;
@@ -165,18 +166,25 @@
         }
     }*/
     PageViewController *pageView = (PageViewController *) segue.destinationViewController;
+    NSUInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
+    NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:id];
+    
+    pageView.htmlString = htmlString;
 }
 
 -(void) saveTweetsToDisk {
+    NSLog(@"Entering saveTweetsToDisk");
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:TIMELINE_FILENAME]];
-
     [[NSFileManager defaultManager] removeItemAtURL:docURL error:nil];
+    self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
+    self.timelineDoc.savedTimeline = [[SavedTimeline alloc] init];
+    self.timelineDoc.savedTimeline.timelineData = self.twitterResponseData;
+    self.timelineDoc.savedTimeline.setOfHTMLPagesById = [[NSMutableSet alloc] init];
     
     for (int i = 0; i < self.twitterTimeline.count; i++) {
-        
-        NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
-        
+        NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:i] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
         if (urlArray.count > 0) {
             NSString *url = [urlArray objectAtIndex:0];
             if (url) {
@@ -192,9 +200,11 @@
 }
 
 -(void) downloadedDict:(NSDictionary *) dict {
+    //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
-        [self.timelineDoc.savedTimeline.arrayOfHTMLPagesDicts addObject:dict];
+        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
     }
+    [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
 }
 
 - (IBAction)btnDownloadTouched:(id)sender {

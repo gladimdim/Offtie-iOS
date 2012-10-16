@@ -32,7 +32,11 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //[self.webView loadHTMLString:self.savedTweet.htmlString baseURL:nil];
+    NSSet *set = (NSSet *) self.htmlString;
+    NSEnumerator *enumerator = [set objectEnumerator];
+    id value;
+    value = [enumerator nextObject];
+    [self.webView loadHTMLString:value baseURL:[NSURL URLWithString:@"http://google.com"]];
 }
 
 - (void)viewDidUnload
