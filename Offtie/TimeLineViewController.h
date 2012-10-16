@@ -11,10 +11,14 @@
 #import <Twitter/Twitter.h>
 #import "Downloader.h"
 
-@interface TimeLineViewController : UITableViewController
+@interface TimeLineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) ACAccount *twitterAccount;
 @property (strong, nonatomic) NSArray *twitterTimeline;
 - (IBAction)btnDownloadTouched:(id)sender;
 @property (assign, nonatomic) UIFont *textFont;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtnStatus;
 @property (strong) TimelineUIDocument *timelineDoc;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property int counterOfDownloads;
+@property int amountOfTweetsWithURL;
 @end

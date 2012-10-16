@@ -24,14 +24,14 @@
 
 #define TIMELINE_FILENAME @"timeline"
 
-- (id)initWithStyle:(UITableViewStyle)style
+/*- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
     return self;
-}
+}*/
 
 
 - (void)viewDidLoad
@@ -81,7 +81,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"entering cellForRow");
     static NSString *CellIdentifier = @"CellTimeLine";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -115,11 +114,16 @@
             if (timeline) {
                 self.twitterTimeline = timeline;
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    self.barBtnStatus.title = @"Offline files available";
                     [self.tableView reloadData];
                 });
+                
             }
         }
         else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.barBtnStatus.title = @"Getting timeline";
+            });
             [self downloadTwitterTimeLine];
         }
     }];
@@ -127,6 +131,8 @@
 
 
 -(void) downloadTwitterTimeLine {
+    self.counterOfDownloads = 0;
+    self.amountOfTweetsWithURL = 0;
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
     NSDictionary *dict = [NSDictionary dictionaryWithObject:@"count" forKey:@"count"];
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
@@ -193,6 +199,7 @@
                 downloader.url = [NSURL URLWithString:url];
                 downloader.id = [[[self.twitterTimeline objectAtIndex:i] valueForKey:@"id"] stringValue];
                 downloader.delegate = self;
+                self.amountOfTweetsWithURL++;
                 [downloader saveTweet];
             }
         }
@@ -203,8 +210,13 @@
     //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
         [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
+        //update barbutton title to reflect progress of downloads
+        self.counterOfDownloads++;
+        self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
+
+    
 }
 
 - (IBAction)btnDownloadTouched:(id)sender {
@@ -212,4 +224,9 @@
     [self downloadTwitterTimeLine];
 }
 
+- (void)viewDidUnload {
+    [self setBarBtnStatus:nil];
+    [self setTableView:nil];
+    [super viewDidUnload];
+}
 @end

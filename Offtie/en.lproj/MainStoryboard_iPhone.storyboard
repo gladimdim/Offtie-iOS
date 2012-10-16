@@ -22,9 +22,6 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <segue destination="xaq-AH-eGQ" kind="push" identifier="ShowAccountTimeLine" id="LVc-2w-7R5"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,50 +30,86 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="g7j-OQ-VVC"/>
+                    <connections>
+                        <segue destination="Jw3-Ks-meJ" kind="push" identifier="ShowAccountTimeLine" id="2hf-ML-eIe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4n-P2-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1045" y="50"/>
         </scene>
         <!--Time Line View Controller-->
-        <scene sceneID="OuR-sW-A0G">
+        <scene sceneID="MnX-P4-Peg">
             <objects>
-                <tableViewController id="xaq-AH-eGQ" customClass="TimeLineViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fEO-bx-ELP">
+                <viewController id="Jw3-Ks-meJ" customClass="TimeLineViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QNu-sj-Rld">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="ATO-D8-M4w">
-                                <rect key="frame" x="0.0" y="22" width="320" height="106"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="105"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zna-ZT-PIS">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellTimeLine" textLabel="PFB-2M-ITh" detailTextLabel="FKJ-JU-utT" style="IBUITableViewCellStyleSubtitle" id="9vA-Yd-uQ5">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PFB-2M-ITh">
+                                                    <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FKJ-JU-utT">
+                                                    <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <segue destination="IBS-Lr-RoN" kind="push" identifier="ShowWebView" id="kh6-mk-kBA"/>
+                                    <outlet property="dataSource" destination="Jw3-Ks-meJ" id="KCu-2I-Q04"/>
+                                    <outlet property="delegate" destination="Jw3-Ks-meJ" id="lMm-y1-qZh"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="xaq-AH-eGQ" id="ah9-tW-Tzg"/>
-                            <outlet property="delegate" destination="xaq-AH-eGQ" id="uYn-j4-QQQ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Rhj-0g-soB">
-                        <barButtonItem key="rightBarButtonItem" title="Refresh &amp; Download" id="PXM-3d-rvg">
-                            <color key="tintColor" red="0.25463152438822501" green="0.59502551020408156" blue="0.3341474400135015" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Rk9-Gg-3dF">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="KTN-yh-hm7"/>
+                                    <barButtonItem width="210" style="plain" id="zm0-Yv-fJg"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lll-lR-tZl">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh &amp; Download" id="CSr-ZS-lO9">
+                            <color key="tintColor" red="0.37051191734011329" green="0.61025191326530615" blue="0.34967026554570058" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="btnDownloadTouched:" destination="xaq-AH-eGQ" id="0y1-1J-xL5"/>
+                                <action selector="btnDownloadTouched:" destination="Jw3-Ks-meJ" id="WPZ-3p-9Lq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MCu-sI-D00" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="barBtnStatus" destination="zm0-Yv-fJg" id="oLP-qc-nWk"/>
+                        <outlet property="tableView" destination="Zna-ZT-PIS" id="H9a-2m-N4l"/>
+                        <segue destination="IBS-Lr-RoN" kind="push" identifier="ShowWebView" id="Tf0-I8-6s4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6xi-k0-oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="50"/>
+            <point key="canvasLocation" x="1488" y="50"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="RIa-sT-NKa">
@@ -123,6 +156,25 @@
             <point key="canvasLocation" x="579" y="50"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="OfftieTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfftieTableViewController.h"/>
+        </class>
+        <class className="PageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="TimeLineViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnDownloadTouched:"/>
+                <relationship kind="outlet" name="barBtnStatus" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
