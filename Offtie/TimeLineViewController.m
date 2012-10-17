@@ -17,11 +17,6 @@
 
 @implementation TimeLineViewController 
 
-@synthesize twitterAccount;
-@synthesize twitterTimeline;
-@synthesize textFont;
-
-
 #define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
 /*- (id)initWithStyle:(UITableViewStyle)style
@@ -48,10 +43,7 @@
     [super viewWillAppear:animated];
     self.textFont = [UIFont boldSystemFontOfSize:15.0f];
     [self checkOnlineOfflineMode];
-    
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {

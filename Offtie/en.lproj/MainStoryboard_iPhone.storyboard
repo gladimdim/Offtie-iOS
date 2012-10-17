@@ -45,7 +45,7 @@
                             <outlet property="delegate" destination="g9x-Vs-688" id="jHF-kK-whQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Twitter account selection" id="g7j-OQ-VVC"/>
+                    <navigationItem key="navigationItem" title="Account selection" id="g7j-OQ-VVC"/>
                     <connections>
                         <segue destination="Jw3-Ks-meJ" kind="push" identifier="ShowAccountTimeLine" id="2hf-ML-eIe"/>
                     </connections>
@@ -171,25 +171,6 @@
             <point key="canvasLocation" x="579" y="50"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="OfftieTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfftieTableViewController.h"/>
-        </class>
-        <class className="PageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="TimeLineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnDownloadTouched:"/>
-                <relationship kind="outlet" name="barBtnStatus" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
