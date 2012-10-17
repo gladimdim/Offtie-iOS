@@ -8,17 +8,33 @@
         <!--Offtie Table View Controller - Tweets-->
         <scene sceneID="HV6-fM-hia">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G4n-P2-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Tweets" id="g9x-Vs-688" customClass="OfftieTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Or6-dn-UEf">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Or6-dn-UEf">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IQM-B6-hvX">
+                            <rect key="frame" x="0.0" y="102" width="320" height="143"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <attributedString key="attributedText">
+                                <fragment>
+                                    <string key="content">Offtie does not post any tweets. Only user timeline is accessed by this application. No information is sent to other servers. All pages and tweets are saved to device and can be deleted at anytime.</string>
+                                    <attributes>
+                                        <color key="NSColor" red="0.50185347576530615" green="0.50185347576530615" blue="0.50185347576530615" alpha="1" colorSpace="calibratedRGB"/>
+                                        <font key="NSFont" size="17" name="Helvetica"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="6" headIndent="6"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZdK-vM-ah5">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -29,12 +45,11 @@
                             <outlet property="delegate" destination="g9x-Vs-688" id="jHF-kK-whQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="g7j-OQ-VVC"/>
+                    <navigationItem key="navigationItem" title="Twitter account selection" id="g7j-OQ-VVC"/>
                     <connections>
                         <segue destination="Jw3-Ks-meJ" kind="push" identifier="ShowAccountTimeLine" id="2hf-ML-eIe"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G4n-P2-eDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1045" y="50"/>
         </scene>

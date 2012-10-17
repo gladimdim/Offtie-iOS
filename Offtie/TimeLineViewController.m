@@ -22,7 +22,6 @@
 @synthesize textFont;
 
 
-#define TIMELINE_FILENAME @"timeline"
 #define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
 /*- (id)initWithStyle:(UITableViewStyle)style
@@ -49,6 +48,7 @@
     [super viewWillAppear:animated];
     self.textFont = [UIFont boldSystemFontOfSize:15.0f];
     [self checkOnlineOfflineMode];
+    
 }
 
 
@@ -123,7 +123,7 @@
 
 -(void) checkOnlineOfflineMode {
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:TIMELINE_FILENAME]];
+    NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:self.twitterAccount.username]];
 
     self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
 
@@ -205,7 +205,7 @@
 -(void) saveTweetsToDisk {
     NSLog(@"Entering saveTweetsToDisk");
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:TIMELINE_FILENAME]];
+    NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:self.twitterAccount.username]];
     [[NSFileManager defaultManager] removeItemAtURL:docURL error:nil];
     self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
     self.timelineDoc.savedTimeline = [[SavedTimeline alloc] init];
