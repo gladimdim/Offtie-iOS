@@ -117,28 +117,28 @@
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:self.twitterAccount.username]];
 
-    self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
-
-    [self.timelineDoc openWithCompletionHandler:^(BOOL success){
-        NSLog(@"opened timeline file: %@", success ? @"YES" : @"NO");
-        if (success) {
-            NSArray *timeline = [NSJSONSerialization JSONObjectWithData:self.timelineDoc.savedTimeline.timelineData options:NSJSONWritingPrettyPrinted error:nil];
-            if (timeline) {
-                self.twitterTimeline = timeline;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self updateBarButtonWithLastDownloadTime];
-                    [self.tableView reloadData];
-                });
-                
+    if (!self.timelineDoc) {
+        self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
+        [self.timelineDoc openWithCompletionHandler:^(BOOL success){
+            NSLog(@"opened timeline file: %@", success ? @"YES" : @"NO");
+            if (success) {
+                NSArray *timeline = [NSJSONSerialization JSONObjectWithData:self.timelineDoc.savedTimeline.timelineData options:NSJSONWritingPrettyPrinted error:nil];
+                if (timeline) {
+                    self.twitterTimeline = timeline;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self updateBarButtonWithLastDownloadTime];
+                        [self.tableView reloadData];
+                    });
+                }
             }
-        }
-        else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.barBtnStatus.title = @"Getting timeline";
-            });
-            [self downloadTwitterTimeLine];
-        }
-    }];
+            else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.barBtnStatus.title = @"Getting timeline";
+                });
+                [self downloadTwitterTimeLine];
+            }
+        }];
+    }
 }
 
 
@@ -227,6 +227,11 @@
         }
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
+    if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
+        [self.timelineDoc saveToURL:self.timelineDoc.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
+            NSLog(@"savedfile to url: %@", success ? @"YES" : @"NO");
+        }];
+    }
 }
 
 - (IBAction)btnDownloadTouched:(id)sender {
