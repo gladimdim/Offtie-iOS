@@ -13,6 +13,11 @@
 		F278D95D162BFE60006FED6B /* TimelineUIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D95C162BFE60006FED6B /* TimelineUIDocument.m */; };
 		F278D965162C10AD006FED6B /* SavedTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D964162C10AD006FED6B /* SavedTimeline.m */; };
 		F278D968162C1684006FED6B /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D967162C1684006FED6B /* Downloader.m */; };
+		F278D97816308F1A006FED6B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D97716308F1A006FED6B /* Default-568h@2x.png */; };
+		F278D97B1630928B006FED6B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D97A1630928B006FED6B /* Icon.png */; };
+		F278D97D16309500006FED6B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D97C16309500006FED6B /* Icon@2x.png */; };
+		F278D981163098DF006FED6B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D980163098DF006FED6B /* Icon-Small@2x.png */; };
+		F278D98316309972006FED6B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D98216309972006FED6B /* Icon-Small.png */; };
 		F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC4A11604888300DC35E3 /* PageViewController.m */; };
 		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
 		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
@@ -36,6 +41,11 @@
 		F278D964162C10AD006FED6B /* SavedTimeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedTimeline.m; sourceTree = "<group>"; };
 		F278D966162C1684006FED6B /* Downloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Downloader.h; sourceTree = "<group>"; };
 		F278D967162C1684006FED6B /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Downloader.m; sourceTree = "<group>"; };
+		F278D97716308F1A006FED6B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F278D97A1630928B006FED6B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Offtie/Resources/Icon.png; sourceTree = "<group>"; };
+		F278D97C16309500006FED6B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Offtie/Resources/Icon@2x.png"; sourceTree = "<group>"; };
+		F278D980163098DF006FED6B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Offtie/Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
+		F278D98216309972006FED6B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Offtie/Resources/Icon-Small.png"; sourceTree = "<group>"; };
 		F2DAC4A01604888300DC35E3 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		F2DAC4A11604888300DC35E3 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		F2FB92E615EA705600A5DE37 /* Offtie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,9 +93,22 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		F278D97916309252006FED6B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F278D98216309972006FED6B /* Icon-Small.png */,
+				F278D980163098DF006FED6B /* Icon-Small@2x.png */,
+				F278D97C16309500006FED6B /* Icon@2x.png */,
+				F278D97A1630928B006FED6B /* Icon.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		F2FB92DB15EA705600A5DE37 = {
 			isa = PBXGroup;
 			children = (
+				F278D97916309252006FED6B /* Resources */,
+				F278D97716308F1A006FED6B /* Default-568h@2x.png */,
 				F23A0BA815EA8CE400C99909 /* Twitter.framework */,
 				F23A0BA515EA8C6D00C99909 /* Accounts.framework */,
 				F2FB92F015EA705600A5DE37 /* Offtie */,
@@ -197,6 +220,11 @@
 				F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */,
 				F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */,
 				F2FB930115EA705600A5DE37 /* MainStoryboard_iPad.storyboard in Resources */,
+				F278D97816308F1A006FED6B /* Default-568h@2x.png in Resources */,
+				F278D97B1630928B006FED6B /* Icon.png in Resources */,
+				F278D97D16309500006FED6B /* Icon@2x.png in Resources */,
+				F278D981163098DF006FED6B /* Icon-Small@2x.png in Resources */,
+				F278D98316309972006FED6B /* Icon-Small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +333,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -316,7 +346,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
