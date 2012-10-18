@@ -165,15 +165,9 @@
                     [self saveTweetsToDisk];
                 });
             }
-          //  NSLog(@"count: %i", timeline.count);
-          //  NSLog(@"first: %@", [timeline objectAtIndex:0]);
         }
     }];
-    
-     // [UIFont fontWithName:@"Arial" size:15.0f];
-
 }
-
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     /*NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
@@ -233,8 +227,6 @@
         }
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
-
-    
 }
 
 - (IBAction)btnDownloadTouched:(id)sender {

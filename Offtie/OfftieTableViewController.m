@@ -31,27 +31,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-
-        self.accountStore = [[ACAccountStore alloc] init];
-        ACAccountType *accountTypeTwitter =
-            [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter
-                                         withCompletionHandler:^(BOOL granted, NSError *error) {
-                                             if (granted) {
-                                                 dispatch_sync(dispatch_get_main_queue(), ^{
-                                                     self.accounts = [self.accountStore
-                                                                      accountsWithAccountType:accountTypeTwitter];
-                                                     [self.tableView reloadData]; 
-                                                 });
-                                             }
-                                         }];
-        
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *accountTypeTwitter =
+    [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter
+                                 withCompletionHandler:^(BOOL granted, NSError *error) {
+                                     if (granted) {
+                                         dispatch_sync(dispatch_get_main_queue(), ^{
+                                             self.accounts = [self.accountStore
+                                                              accountsWithAccountType:accountTypeTwitter];
+                                             [self.tableView reloadData];
+                                         });
+                                     }
+                                     else {
+                                         NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
+                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                             [self.tableView reloadData];
+                                         });
+                                     }
+                                 }];
 }
 
 - (void)viewDidUnload
@@ -89,7 +96,12 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [self.accounts count];
+    if (self.accounts) {
+        return [self.accounts count];
+    }
+    else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +114,15 @@
     
     // Configure the cell...
     ACAccount *acc = [self.accounts objectAtIndex:indexPath.row];
-    cell.textLabel.text = acc.username;
+    if (acc) {
+        cell.textLabel.text = acc.username;
+        self.tableView.allowsSelection = YES;
+    }
+    else {
+        cell.textLabel.text = @"No accounts available";
+        self.tableView.allowsSelection = NO;
+    }
+
     return cell;
 }
 
@@ -156,7 +176,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
+    if (self.accounts) {
+        [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
+    }
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
