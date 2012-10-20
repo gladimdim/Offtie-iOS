@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SavedTimeline.h"
 
-@interface PageViewController : UIViewController
+@interface PageViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong) NSString *htmlString; 
