@@ -113,9 +113,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
+                        <barButtonItem width="21" style="plain" systemItem="fixedSpace" id="jrb-Yi-VsP"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="xGZ-oi-n6I"/>
                         <barButtonItem style="plain" id="dDy-pI-aHn"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="bth-TP-L8s"/>
+                        <barButtonItem width="21" style="plain" systemItem="fixedSpace" id="3um-Vc-bfM"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="lll-lR-tZl">
                         <barButtonItem key="rightBarButtonItem" title="Refresh &amp; Download" id="CSr-ZS-lO9">

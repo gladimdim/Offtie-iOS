@@ -42,8 +42,9 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.textFont = [UIFont boldSystemFontOfSize:15.0f];
-    [self checkOnlineOfflineMode];
     self.barBtnStatus.title = @"Loading data";
+    [self checkOnlineOfflineMode];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,6 +155,11 @@
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
     timeLineRequest.account = self.twitterAccount;
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        if (error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.barBtnStatus.title = @"Connection error";
+            });
+        }
         NSLog(@"response: %d", [urlResponse statusCode]);
         NSLog(@"response size: %u", [responseData length]);
         if ([urlResponse statusCode] == 200) {

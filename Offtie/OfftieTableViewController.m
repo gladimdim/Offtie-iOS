@@ -141,7 +141,7 @@
         sum += [[dictAttributes valueForKey:NSFileSize] intValue];
     }
     sizeOfFiles = [NSNumber numberWithDouble:sum / 1000000.0];
-    self.btnBarDeleteDownloadedData.title =[NSString stringWithFormat:@"Delete data: %.1fMb", [sizeOfFiles doubleValue]];
+    self.btnBarDeleteDownloadedData.title =[NSString stringWithFormat:@"Delete offline data: %.1fMb", [sizeOfFiles doubleValue]];
     //self.btnBarDeleteDownloadedData.tintColor = [UIColor redColor];
 }
 
