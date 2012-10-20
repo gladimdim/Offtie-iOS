@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OfftieTableViewController : UITableViewController
-
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnBarDeleteDownloadedData;
+- (IBAction)btnBarDeleteDownloadedDataPressed:(id)sender;
 @end

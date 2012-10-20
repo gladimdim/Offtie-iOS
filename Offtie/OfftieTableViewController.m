@@ -59,10 +59,13 @@
                                          });
                                      }
                                  }];
+    [self updateBarButtonDataStatistics];
 }
 
 - (void)viewDidUnload
 {
+    [self setBtnBarDeleteDownloadedData:nil];
+    [self setTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -124,44 +127,23 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void) updateBarButtonDataStatistics {
+    NSError *error;
+    NSURL *urlDocuments = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSArray *arrayOfKeys = [NSArray arrayWithObject:NSURLIsRegularFileKey];
+    NSArray *arrayOfFilesURL = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:urlDocuments includingPropertiesForKeys:arrayOfKeys options:NSDirectoryEnumerationSkipsHiddenFiles error:&error];
+    NSNumber *sizeOfFiles = [[NSNumber alloc] init];
+    double sum = 0;
+    for (int i = 0; i < arrayOfFilesURL.count; i++) {
+        NSError *error;
+        NSDictionary *dictAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[[arrayOfFilesURL objectAtIndex:i] path] error:&error];
+        NSLog(@"dictAttributes: %@", [dictAttributes valueForKey:NSFileSize]);
+        sum += [[dictAttributes valueForKey:NSFileSize] intValue];
+    }
+    sizeOfFiles = [NSNumber numberWithDouble:sum / 1000000.0];
+    self.btnBarDeleteDownloadedData.title =[NSString stringWithFormat:@"Delete data: %.1fMb", [sizeOfFiles doubleValue]];
+    //self.btnBarDeleteDownloadedData.tintColor = [UIColor redColor];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -187,4 +169,18 @@
     }
 }
 
+- (IBAction)btnBarDeleteDownloadedDataPressed:(id)sender {
+    NSError *errorContentsOfDirectory;
+    NSURL *urlDocuments = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSArray *arrayOfKeys = [NSArray arrayWithObject:NSURLIsRegularFileKey];
+    NSArray *arrayOfFilesURL = [[NSFileManager defaultManager] contentsOfDirectoryAtURL:urlDocuments includingPropertiesForKeys:arrayOfKeys options:NSDirectoryEnumerationSkipsHiddenFiles error:&errorContentsOfDirectory];
+    for (int i = 0; i < arrayOfFilesURL.count; i++)    {
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtURL:arrayOfFilesURL[i] error:&error];
+        if (error) {
+            NSLog(@"Error %@ occured during deleting of %@", error, arrayOfFilesURL[i]);
+        }
+    }
+    [self updateBarButtonDataStatistics];
+}
 @end

@@ -43,6 +43,7 @@
     [super viewWillAppear:animated];
     self.textFont = [UIFont boldSystemFontOfSize:15.0f];
     [self checkOnlineOfflineMode];
+    self.barBtnStatus.title = @"Loading data";
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +128,7 @@
                 if (timeline) {
                     self.twitterTimeline = timeline;
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        self.barBtnStatus.title = @"Found offline files";
                         [self updateBarButtonWithLastDownloadTime];
                         [self.tableView reloadData];
                     });
