@@ -12,6 +12,7 @@
 
 @interface DownloaderCallBack : NSObject
 -(void) downloadedDict:(NSDictionary *) dict;
+-(void) emptyHtmlStringReceived;
 @end
 
 @interface Downloader : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>

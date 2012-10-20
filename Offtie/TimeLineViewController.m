@@ -216,6 +216,10 @@
     }
 }
 
+
+/*
+ DownloaderInterface implementations
+ */
 -(void) downloadedDict:(NSDictionary *) dict {
     //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
@@ -234,6 +238,13 @@
         }];
     }
 }
+
+//if empty html was received - decrease overal amount of tweets counter
+-(void) emptyHtmlStringReceived {
+    self.amountOfTweetsWithURL--;
+}
+
+
 
 - (IBAction)btnDownloadTouched:(id)sender {
     self.barBtnStatus.title = @"Preparing to update";
