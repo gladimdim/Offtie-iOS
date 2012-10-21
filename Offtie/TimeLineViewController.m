@@ -75,6 +75,22 @@
     return self.twitterTimeline.count;
 }
 
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSEnumerator *enumerator = [self.timelineDoc.savedTimeline.setOfHTMLPagesById objectEnumerator];
+    NSDictionary *dict;
+    while (dict = [enumerator nextObject]) {
+        NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
+        NSString *htmlString = [dict valueForKey:tweetId];
+        if (htmlString) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            return;
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellTimeLine";
@@ -237,6 +253,7 @@
         self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];
         if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
             [self updateBarButtonWithLastDownloadTime];
+            [self.tableView reloadData];
         }
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
