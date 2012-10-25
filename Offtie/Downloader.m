@@ -34,6 +34,7 @@
     [self.receivedData appendData:data];
 }
 
+//when download finishes we send back to delegate NSDictionary with tweet id and appropriate html string for its URL
 -(void) connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString *htmlString = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     if (htmlString == nil) {

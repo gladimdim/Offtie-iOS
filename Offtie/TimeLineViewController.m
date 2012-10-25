@@ -104,7 +104,31 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
-    cell.detailTextLabel.text = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"user"] valueForKey:@"name"];
+    
+    /*NSString *date = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"created_at"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+    
+    NSDate *nsDate = [dateFormatter dateFromString:date];
+    [dateFormatter setDateFormat:@"eee dd HH:mm"];
+    */
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    //Wed Dec 01 17:08:03 +0000 2010
+    [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    [df setDateFormat:@"eee MMM ddd HH:mm:ss ZZZ yyyy"];
+    NSDictionary *dict = [self.twitterTimeline objectAtIndex:indexPath.row];
+    NSString *stringDate = [dict objectForKey:@"created_at"];
+    //Thu Oct 25 19:18:26 +0000 2012
+    NSDate *date = [df dateFromString:stringDate];
+    [df setDateFormat:@"eee MMM dd HH:mm"];
+    NSString *dateStr = [df stringFromDate:date];
+    NSString *authorName = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"user"] valueForKey:@"name"];
+    
+    NSString *detailedTextString = [NSString stringWithFormat:@"%@ on %@", authorName , dateStr];
+
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:detailedTextString];
+    [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, authorName.length )];
+    [cell.detailTextLabel setAttributedText:attrString];
     // Configure the cell...
     return cell;
 }
@@ -159,6 +183,9 @@
             }
         }];
     }
+    else {
+        [self updateBarButtonWithLastDownloadTime];
+    }
 }
 
 
@@ -183,6 +210,7 @@
             NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONWritingPrettyPrinted error:nil];
             if (timeline) {
                 self.twitterTimeline = timeline;
+                //NSLog(@"timeline first: %@", [timeline lastObject]);
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //update last download time
                     [self updateLastDownloadDateTime];
