@@ -146,17 +146,22 @@
     }
 }
 
+//save last downloaded time for selected twitter account name. date is saved under different keys for different accounts.
+//the format of key is: username-NSDate.
 -(NSDate *) updateLastDownloadDateTime {
 
     NSDate *currentDate = [NSDate date];
     NSLog(@"date update: %@", currentDate);
-    [[NSUserDefaults standardUserDefaults] setObject:currentDate forKey:LAST_DOWNLOAD_DATE_TIME];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:currentDate forKey:[NSString stringWithFormat:@"%@-%@", self.twitterAccount.username, LAST_DOWNLOAD_DATE_TIME]];
     [[NSUserDefaults standardUserDefaults] synchronize];
     return currentDate;
 }
 
+//get last downloaded time for selected twitter account name. date is saved under different keys for different accounts.
+//the format of key is: username-NSDate.
 -(NSDate *) getLastDownloadDateTime {
-    NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_DOWNLOAD_DATE_TIME];
+    NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@-%@", self.twitterAccount.username, LAST_DOWNLOAD_DATE_TIME]];
     return  lastUpdate;
 }
 
