@@ -143,11 +143,11 @@
             <objects>
                 <viewController id="IBS-Lr-RoN" customClass="PageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mxW-8a-RhC">
-                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView multipleTouchEnabled="YES" contentMode="scaleToFill" scalesPageToFit="YES" id="KGY-SP-mfu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -156,6 +156,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZE0-J5-2gk"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="KGY-SP-mfu" id="K8n-7U-Mt8"/>
                     </connections>

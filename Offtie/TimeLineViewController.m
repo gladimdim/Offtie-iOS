@@ -81,7 +81,7 @@
     while (dict = [enumerator nextObject]) {
         NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
         NSString *htmlString = [dict valueForKey:tweetId];
-        if (htmlString) {
+        if (htmlString && ![htmlString isEqualToString:@""]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
             return;
         }
@@ -134,8 +134,16 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"ShowWebView" sender:self];
-    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    NSEnumerator *enumerator = [self.timelineDoc.savedTimeline.setOfHTMLPagesById objectEnumerator];
+    NSDictionary *dict;
+    while (dict = [enumerator nextObject]) {
+        NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
+        NSString *htmlString = [dict valueForKey:tweetId];
+        if (htmlString && ![htmlString isEqualToString:@""]) {
+            [self performSegueWithIdentifier:@"ShowWebView" sender:self];
+        }
+        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+    }
 }
 
 -(NSDate *) updateLastDownloadDateTime {

@@ -26,7 +26,6 @@
 		F2FB92F715EA705600A5DE37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB92F615EA705600A5DE37 /* main.m */; };
 		F2FB92FB15EA705600A5DE37 /* OfftieAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */; };
 		F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */; };
-		F2FB930115EA705600A5DE37 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */; };
 		F2FB930C15EA70C700A5DE37 /* OfftieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB930B15EA70C700A5DE37 /* OfftieTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfftieAppDelegate.h; sourceTree = "<group>"; };
 		F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfftieAppDelegate.m; sourceTree = "<group>"; };
 		F2FB92FD15EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		F2FB930015EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F2FB930A15EA70C700A5DE37 /* OfftieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfftieTableViewController.h; sourceTree = "<group>"; };
 		F2FB930B15EA70C700A5DE37 /* OfftieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfftieTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,7 +140,6 @@
 				F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */,
 				F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */,
 				F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */,
-				F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */,
 				F2FB92F115EA705600A5DE37 /* Supporting Files */,
 				F278D95B162BFE60006FED6B /* TimelineUIDocument.h */,
 				F278D95C162BFE60006FED6B /* TimelineUIDocument.m */,
@@ -219,7 +216,6 @@
 			files = (
 				F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */,
 				F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */,
-				F2FB930115EA705600A5DE37 /* MainStoryboard_iPad.storyboard in Resources */,
 				F278D97816308F1A006FED6B /* Default-568h@2x.png in Resources */,
 				F278D97B1630928B006FED6B /* Icon.png in Resources */,
 				F278D97D16309500006FED6B /* Icon@2x.png in Resources */,
@@ -263,14 +259,6 @@
 				F2FB92FD15EA705600A5DE37 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		F2FB92FF15EA705600A5DE37 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F2FB930015EA705600A5DE37 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarController.tabBar setHidden:YES];
+    [self setHidesBottomBarWhenPushed:YES];
     [self.webView reload];
 	// Do any additional setup after loading the view.
 }
