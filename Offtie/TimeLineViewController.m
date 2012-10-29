@@ -142,7 +142,6 @@
         if (htmlString && ![htmlString isEqualToString:@""]) {
             [self performSegueWithIdentifier:@"ShowWebView" sender:self];
         }
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
     }
 }
 
@@ -247,11 +246,12 @@
         }
     }*/
     PageViewController *pageView = (PageViewController *) segue.destinationViewController;
-    NSUInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSInteger selectedRow = indexPath.row;
     NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
     NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:id];
-    
     pageView.htmlString = htmlString;
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 }
 
 -(void) saveTweetsToDisk {
