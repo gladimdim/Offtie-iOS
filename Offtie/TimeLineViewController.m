@@ -76,19 +76,16 @@
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSEnumerator *enumerator = [self.timelineDoc.savedTimeline.setOfHTMLPagesById objectEnumerator];
-    NSDictionary *dict;
-    while (dict = [enumerator nextObject]) {
-        NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
-        NSString *htmlString = [dict valueForKey:tweetId];
-        if (htmlString && ![htmlString isEqualToString:@""]) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            return;
-        }
-        else {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }
+    NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:tweetId];
+    if (htmlString && ![htmlString isEqualToString:@""]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        return;
     }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,14 +131,13 @@
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSEnumerator *enumerator = [self.timelineDoc.savedTimeline.setOfHTMLPagesById objectEnumerator];
-    NSDictionary *dict;
-    while (dict = [enumerator nextObject]) {
-        NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
-        NSString *htmlString = [dict valueForKey:tweetId];
-        if (htmlString && ![htmlString isEqualToString:@""]) {
+    NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:tweetId];
+    if (htmlString && ![htmlString isEqualToString:@""]) {
             [self performSegueWithIdentifier:@"ShowWebView" sender:self];
-        }
+    }
+    else {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
@@ -206,7 +202,7 @@
     self.amountOfTweetsWithURL = 0;
     
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"count" forKey:@"count"];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"30" forKey:@"count"];
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
     timeLineRequest.account = self.twitterAccount;
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
@@ -249,6 +245,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     NSInteger selectedRow = indexPath.row;
     NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
+     
     NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:id];
     pageView.htmlString = htmlString;
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
@@ -262,7 +259,7 @@
     self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
     self.timelineDoc.savedTimeline = [[SavedTimeline alloc] init];
     self.timelineDoc.savedTimeline.timelineData = self.twitterResponseData;
-    self.timelineDoc.savedTimeline.setOfHTMLPagesById = [[NSMutableSet alloc] init];
+    self.timelineDoc.savedTimeline.setOfHTMLPagesById = [[NSMutableDictionary alloc] init];
     
     for (int i = 0; i < self.twitterTimeline.count; i++) {
         NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:i] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
@@ -288,7 +285,8 @@
 -(void) downloadedDict:(NSDictionary *) dict {
     //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
-        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
+//        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
+        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addEntriesFromDictionary:dict];
         //update barbutton title to reflect progress of downloads
         self.counterOfDownloads++;
         self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];

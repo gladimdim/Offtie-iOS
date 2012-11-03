@@ -10,5 +10,5 @@
 
 @interface SavedTimeline : NSObject <NSCoding>
 @property NSData *timelineData;
-@property NSMutableSet *setOfHTMLPagesById;
+@property NSMutableDictionary *setOfHTMLPagesById;
 @end

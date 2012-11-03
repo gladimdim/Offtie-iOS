@@ -12,5 +12,5 @@
 @interface PageViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong) NSString *htmlString; 
+@property (strong) NSString *htmlString;
 @end

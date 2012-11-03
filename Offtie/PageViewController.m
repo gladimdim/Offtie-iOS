@@ -41,13 +41,8 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-#warning figure out why htmlString is not NSString but NSSet
-    NSSet *set = (NSSet *) self.htmlString;
-    NSEnumerator *enumerator = [set objectEnumerator];
-    id value;
-    value = [enumerator nextObject];
     self.webView.delegate = self;
-    [self.webView loadHTMLString:value baseURL:[NSURL URLWithString:@"http://google.com"]];
+    [self.webView loadHTMLString:self.htmlString baseURL:nil];
     
 }
 
