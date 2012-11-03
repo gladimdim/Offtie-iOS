@@ -15,7 +15,7 @@
 @property (strong) NSData *twitterResponseData;
 @end
 
-@implementation TimeLineViewController 
+@implementation TimeLineViewController
 
 #define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
@@ -77,7 +77,7 @@
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
-    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:tweetId];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
     if (htmlString && ![htmlString isEqualToString:@""]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         return;
@@ -132,7 +132,7 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
-    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:tweetId];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
     if (htmlString && ![htmlString isEqualToString:@""]) {
             [self performSegueWithIdentifier:@"ShowWebView" sender:self];
     }
@@ -209,6 +209,7 @@
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.barBtnStatus.title = @"Connection error";
+                self.btnRefreshDownload.enabled = YES;
             });
         }
         NSLog(@"response: %d", [urlResponse statusCode]);
@@ -246,7 +247,7 @@
     NSInteger selectedRow = indexPath.row;
     NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
      
-    NSString *htmlString = [self.timelineDoc.savedTimeline.setOfHTMLPagesById valueForKey:id];
+    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:id];
     pageView.htmlString = htmlString;
     [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 }
@@ -259,7 +260,7 @@
     self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
     self.timelineDoc.savedTimeline = [[SavedTimeline alloc] init];
     self.timelineDoc.savedTimeline.timelineData = self.twitterResponseData;
-    self.timelineDoc.savedTimeline.setOfHTMLPagesById = [[NSMutableDictionary alloc] init];
+    self.timelineDoc.savedTimeline.dictOfHTMLPagesById = [[NSMutableDictionary alloc] init];
     
     for (int i = 0; i < self.twitterTimeline.count; i++) {
         NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:i] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
@@ -286,11 +287,12 @@
     //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
 //        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
-        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addEntriesFromDictionary:dict];
+        [self.timelineDoc.savedTimeline.dictOfHTMLPagesById addEntriesFromDictionary:dict];
         //update barbutton title to reflect progress of downloads
         self.counterOfDownloads++;
         self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];
         if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
+            self.btnRefreshDownload.enabled = YES;
             [self updateBarButtonWithLastDownloadTime];
             [self.tableView reloadData];
         }
@@ -304,7 +306,7 @@
 }
 
 //if empty html was received - decrease overal amount of tweets counter
--(void) emptyHtmlStringReceived {
+-(void) errorWhileGettingPageReceived {
     self.amountOfTweetsWithURL--;
 }
 
@@ -313,12 +315,14 @@
 - (IBAction)btnDownloadTouched:(id)sender {
     self.barBtnStatus.title = @"Preparing to update";
     //downloading new timeline. If success tweets are autostored to disk
+    self.btnRefreshDownload.enabled = NO;
     [self downloadTwitterTimeLine];
 }
 
 - (void)viewDidUnload {
     [self setBarBtnStatus:nil];
     [self setTableView:nil];
+    [self setBtnRefreshDownload:nil];
     [super viewDidUnload];
 }
 @end

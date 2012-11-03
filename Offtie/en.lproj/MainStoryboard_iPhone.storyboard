@@ -130,6 +130,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="barBtnStatus" destination="dDy-pI-aHn" id="KIc-QO-7sL"/>
+                        <outlet property="btnRefreshDownload" destination="CSr-ZS-lO9" id="wK5-8H-5z1"/>
                         <outlet property="tableView" destination="Zna-ZT-PIS" id="H9a-2m-N4l"/>
                         <segue destination="IBS-Lr-RoN" kind="push" identifier="ShowWebView" id="Tf0-I8-6s4"/>
                     </connections>

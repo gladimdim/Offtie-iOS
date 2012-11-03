@@ -10,9 +10,9 @@
 #import "TimelineUIDocument.h"
 
 
-@interface DownloaderCallBack : NSObject
+@protocol DownloaderCallBack
 -(void) downloadedDict:(NSDictionary *) dict;
--(void) emptyHtmlStringReceived;
+-(void) errorWhileGettingPageReceived;
 @end
 
 @interface Downloader : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
@@ -20,7 +20,7 @@
 @property (strong) NSURL *docURL;
 @property (strong) NSMutableData *receivedData;
 @property (strong) NSString *id;
-@property (strong) id delegate;
+@property (strong) id <DownloaderCallBack> delegate;
 
 -(void) saveTweet;
 

@@ -10,8 +10,6 @@
 
 @implementation Downloader
 
-
-
 -(void) saveTweet {
     if (self.url == nil) {
         return;
@@ -39,12 +37,16 @@
     NSString *htmlString = [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding];
     if (htmlString == nil) {
         NSLog(@"Empty html returned for url: %@", self.url);
-        [self.delegate emptyHtmlStringReceived];
+        [self.delegate errorWhileGettingPageReceived];
         return;
     }
     else {
         [self.delegate downloadedDict:[[NSDictionary alloc] initWithObjects:[NSArray arrayWithObject:htmlString] forKeys:[NSArray arrayWithObject:self.id]]];
     }
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [self.delegate errorWhileGettingPageReceived];
 }
 
 @end

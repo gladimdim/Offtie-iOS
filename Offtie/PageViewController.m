@@ -42,6 +42,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.webView.delegate = self;
+    NSLog(@"htmlstring size: %i", self.htmlString.length);
     [self.webView loadHTMLString:self.htmlString baseURL:nil];
     
 }
@@ -68,7 +69,7 @@
 
 -(void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     self.navigationItem.title = @"Error loading page";
-    NSLog(@"Error loading page: %@", error);
+    //NSLog(@"Error loading page: %@", error);
 }
 
 @end
