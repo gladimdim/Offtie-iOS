@@ -27,6 +27,8 @@
 		F2FB92FB15EA705600A5DE37 /* OfftieAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */; };
 		F2FB92FE15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */; };
 		F2FB930C15EA70C700A5DE37 /* OfftieTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FB930B15EA70C700A5DE37 /* OfftieTableViewController.m */; };
+		F2FD9904164EA85D00B4F837 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD9902164EA85D00B4F837 /* Icon-72.png */; };
+		F2FD9905164EA85D00B4F837 /* Icon-small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD9903164EA85D00B4F837 /* Icon-small-50.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		F2FB92FD15EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F2FB930A15EA70C700A5DE37 /* OfftieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfftieTableViewController.h; sourceTree = "<group>"; };
 		F2FB930B15EA70C700A5DE37 /* OfftieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfftieTableViewController.m; sourceTree = "<group>"; };
+		F2FD9902164EA85D00B4F837 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Offtie/Resources/Icon-72.png"; sourceTree = "<group>"; };
+		F2FD9903164EA85D00B4F837 /* Icon-small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small-50.png"; path = "Offtie/Resources/Icon-small-50.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		F278D97916309252006FED6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2FD9902164EA85D00B4F837 /* Icon-72.png */,
+				F2FD9903164EA85D00B4F837 /* Icon-small-50.png */,
 				F278D98216309972006FED6B /* Icon-Small.png */,
 				F278D980163098DF006FED6B /* Icon-Small@2x.png */,
 				F278D97C16309500006FED6B /* Icon@2x.png */,
@@ -221,6 +227,8 @@
 				F278D97D16309500006FED6B /* Icon@2x.png in Resources */,
 				F278D981163098DF006FED6B /* Icon-Small@2x.png in Resources */,
 				F278D98316309972006FED6B /* Icon-Small.png in Resources */,
+				F2FD9904164EA85D00B4F837 /* Icon-72.png in Resources */,
+				F2FD9905164EA85D00B4F837 /* Icon-small-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
