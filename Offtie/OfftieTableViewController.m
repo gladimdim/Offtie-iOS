@@ -19,6 +19,8 @@
 
 @implementation OfftieTableViewController
 
+#define STRING_INSTRUCTION @"Add/enable access to accounts at Settings->Twitter"
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -40,6 +42,10 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self getListOfAccounts];
+}
+
+-(void) getListOfAccounts {
     self.accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountTypeTwitter =
     [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
@@ -54,12 +60,16 @@
                                      }
                                      else {
                                          NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
+                                         self.accounts = nil;
                                          dispatch_async(dispatch_get_main_queue(), ^{
                                              [self.tableView reloadData];
                                          });
+                                         
                                      }
+     
                                  }];
     [self updateBarButtonDataStatistics];
+
 }
 
 - (void)viewDidUnload
@@ -105,6 +115,19 @@
     }
 }
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.accounts) {
+        return 44;
+    }
+    else {
+        CGSize constraints = CGSizeMake(280.0f, MAXFLOAT);
+        NSString *errorString = STRING_INSTRUCTION;
+        CGFloat height = [errorString sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:constraints lineBreakMode:UILineBreakModeWordWrap].height + 30;
+        return height;
+    }
+
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellAccountsList";
@@ -118,9 +141,15 @@
     if (acc) {
         cell.textLabel.text = acc.username;
         self.tableView.allowsSelection = YES;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else {
-        cell.textLabel.text = @"No accounts available";
+        cell.textLabel.textAlignment = UITextAlignmentLeft;
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.numberOfLines = 0;
+        cell.textLabel.text = STRING_INSTRUCTION;
+        cell.accessoryType = UITableViewCellAccessoryNone;
         self.tableView.allowsSelection = NO;
     }
 
@@ -149,15 +178,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
     if (self.accounts) {
         [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
+    }
+    else {
+        self.accountStore = [[ACAccountStore alloc] init];
+        ACAccountType *accountTypeTwitter =
+        [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter
+                                     withCompletionHandler:^(BOOL granted, NSError *error) {
+                                         if (granted) {
+                                             dispatch_sync(dispatch_get_main_queue(), ^{
+                                                 self.accounts = [self.accountStore
+                                                                  accountsWithAccountType:accountTypeTwitter];
+                                                 [self.tableView reloadData];
+                                             });
+                                         }
+                                         else {
+                                             NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 [self.tableView reloadData];
+                                             });
+                                         }
+                                     }];
+        [self updateBarButtonDataStatistics];
+
     }
 }
 
@@ -182,5 +227,8 @@
         }
     }
     [self updateBarButtonDataStatistics];
+}
+- (IBAction)btnRefreshPressed:(id)sender {
+    [self getListOfAccounts];
 }
 @end

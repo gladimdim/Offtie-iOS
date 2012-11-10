@@ -202,7 +202,7 @@
     self.amountOfTweetsWithURL = 0;
     
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"30" forKey:@"count"];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"20" forKey:@"count"];
     TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
     timeLineRequest.account = self.twitterAccount;
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
@@ -227,6 +227,15 @@
                     [self saveTweetsToDisk];
                 });
             }
+        }
+        //recieved not-ok response from twitter (either twitter account is disabled in iOS or any other error
+        else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error while getting data" message:@"Please check that Internet connection is available or access is enabled for Offtie application at Settings->Twitter" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+                [alert show];
+                self.btnRefreshDownload.enabled = YES;
+                [self updateBarButtonWithLastDownloadTime];
+            });
         }
     }];
 }

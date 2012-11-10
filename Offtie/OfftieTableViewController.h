@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OfftieTableViewController : UITableViewController
+- (IBAction)btnRefreshPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnBarDeleteDownloadedData;
 - (IBAction)btnBarDeleteDownloadedDataPressed:(id)sender;
 @end
