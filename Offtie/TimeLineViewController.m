@@ -161,7 +161,9 @@
 }
 
 -(void) updateBarButtonWithLastDownloadTime {
-    self.barBtnStatus.title = [NSString stringWithFormat:@"Updated on: %@", [NSDateFormatter localizedStringFromDate:[self getLastDownloadDateTime] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle]];
+    NSString *date = [NSDateFormatter localizedStringFromDate:[self getLastDownloadDateTime] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    
+    self.barBtnStatus.title = [NSString stringWithFormat:@"Updated on: %@", date ? date : @"never" ];
 }
 
 -(void) checkOnlineOfflineMode {
