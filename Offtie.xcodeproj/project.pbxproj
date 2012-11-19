@@ -91,7 +91,7 @@
 		F2FD9902164EA85D00B4F837 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Offtie/Resources/Icon-72.png"; sourceTree = "<group>"; };
 		F2FD9903164EA85D00B4F837 /* Icon-small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-small-50.png"; path = "Offtie/Resources/Icon-small-50.png"; sourceTree = "<group>"; };
 		F2FD9906164EAC9200B4F837 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "Offtie/Resources/iTunesArtwork@2x"; sourceTree = "<group>"; };
-		F2FD992F164EE23800B4F837 /* Offtie copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Offtie copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FD992F164EE23800B4F837 /* Offtie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2FD9932164FF8D300B4F837 /* Offtie copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Offtie copy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F2FD99341650035900B4F837 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Offtie/Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		F2FD99351650035900B4F837 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Offtie/Resources/Default.png; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F2FB92E615EA705600A5DE37 /* Offtie.app */,
-				F2FD992F164EE23800B4F837 /* Offtie copy.app */,
+				F2FD992F164EE23800B4F837 /* Offtie.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,7 +253,7 @@
 			);
 			name = "Offtie-AppStore";
 			productName = Offtie;
-			productReference = F2FD992F164EE23800B4F837 /* Offtie copy.app */;
+			productReference = F2FD992F164EE23800B4F837 /* Offtie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
