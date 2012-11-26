@@ -18,14 +18,14 @@
                             <rect key="frame" x="0.0" y="102" width="320" height="170"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <attributedString key="attributedText">
-                                <fragment content="Что Offtie робить:  -читає твіти  -зберігає твіти на ваш пристрій  ">
+                                <fragment content="Що Offtie робить:  -читає твіти  -зберігає твіти на ваш пристрій  ">
                                     <attributes>
                                         <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="17" name="Helvetica"/>
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="6" headIndent="6"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content=" Что Offtie не робить:  -пише твіти від вашого імені  -відсилає ваші дані стороннім людям">
+                                <fragment content=" Що Offtie не робить:  -пише твіти від вашого імені  -відсилає ваші дані стороннім людям">
                                     <attributes>
                                         <color key="NSColor" red="0.50185347576530615" green="0.50185347576530615" blue="0.50185347576530615" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="17" name="Helvetica"/>
@@ -202,6 +202,31 @@
             <point key="canvasLocation" x="579" y="50"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="OfftieTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfftieTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnBarDeleteDownloadedDataPressed:"/>
+                <relationship kind="action" name="btnRefreshPressed:"/>
+                <relationship kind="outlet" name="btnBarDeleteDownloadedData" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="PageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="TimeLineViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="btnDownloadTouched:"/>
+                <relationship kind="outlet" name="barBtnStatus" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="btnRefreshDownload" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
