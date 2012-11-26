@@ -202,31 +202,6 @@
             <point key="canvasLocation" x="579" y="50"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="OfftieTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfftieTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnBarDeleteDownloadedDataPressed:"/>
-                <relationship kind="action" name="btnRefreshPressed:"/>
-                <relationship kind="outlet" name="btnBarDeleteDownloadedData" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="TimeLineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnDownloadTouched:"/>
-                <relationship kind="outlet" name="barBtnStatus" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnRefreshDownload" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
