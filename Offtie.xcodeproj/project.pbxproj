@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F2133EBD1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2133EBB1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard */; };
+		F2133EBE1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2133EBB1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard */; };
+		F2133EBF1663991B0058B8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
+		F2133EC5166399DF0058B8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2133EC1166399DF0058B8E0 /* Localizable.strings */; };
+		F2133EC6166399DF0058B8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2133EC1166399DF0058B8E0 /* Localizable.strings */; };
+		F2133EC7166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2133EC3166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard */; };
+		F2133EC8166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2133EC3166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard */; };
 		F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
 		F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA815EA8CE400C99909 /* Twitter.framework */; };
 		F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */; };
@@ -17,6 +24,9 @@
 		F278D97D16309500006FED6B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D97C16309500006FED6B /* Icon@2x.png */; };
 		F278D981163098DF006FED6B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D980163098DF006FED6B /* Icon-Small@2x.png */; };
 		F278D98316309972006FED6B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D98216309972006FED6B /* Icon-Small.png */; };
+		F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E417166390D6004AEEC8 /* InfoPlist.strings */; };
+		F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E419166390D6004AEEC8 /* Localizable.strings */; };
+		F292E42316639139004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
 		F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC4A11604888300DC35E3 /* PageViewController.m */; };
 		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
 		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
@@ -59,6 +69,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F2133EBC1663972B0058B8E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ru; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F2133EC2166399DF0058B8E0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
+		F2133EC4166399DF0058B8E0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = uk; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F23A0BA515EA8C6D00C99909 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F23A0BA815EA8CE400C99909 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F23A0BAA15EAA14C00C99909 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
@@ -73,6 +86,10 @@
 		F278D97C16309500006FED6B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Offtie/Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		F278D980163098DF006FED6B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Offtie/Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		F278D98216309972006FED6B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Offtie/Resources/Icon-Small.png"; sourceTree = "<group>"; };
+		F292E41516638F3A004AEEC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F292E418166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		F292E41A166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		F292E42216639139004AEEC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		F2DAC4A01604888300DC35E3 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		F2DAC4A11604888300DC35E3 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		F2FB92E615EA705600A5DE37 /* Offtie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offtie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +102,6 @@
 		F2FB92F815EA705600A5DE37 /* Offtie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offtie-Prefix.pch"; sourceTree = "<group>"; };
 		F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfftieAppDelegate.h; sourceTree = "<group>"; };
 		F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfftieAppDelegate.m; sourceTree = "<group>"; };
-		F2FB92FD15EA705600A5DE37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F2FB930A15EA70C700A5DE37 /* OfftieTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfftieTableViewController.h; sourceTree = "<group>"; };
 		F2FB930B15EA70C700A5DE37 /* OfftieTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfftieTableViewController.m; sourceTree = "<group>"; };
 		F2FD9902164EA85D00B4F837 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Offtie/Resources/Icon-72.png"; sourceTree = "<group>"; };
@@ -127,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F2133EC0166399DF0058B8E0 /* uk.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F2133EC1166399DF0058B8E0 /* Localizable.strings */,
+				F2133EC3166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard */,
+			);
+			path = uk.lproj;
+			sourceTree = "<group>";
+		};
 		F278D95E162C0F2A006FED6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +181,24 @@
 				F278D97A1630928B006FED6B /* Icon.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		F292E416166390D5004AEEC8 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F292E417166390D6004AEEC8 /* InfoPlist.strings */,
+				F292E419166390D6004AEEC8 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		F292E41D16639114004AEEC8 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F2133EBB1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard */,
+				F292E42116639139004AEEC8 /* Localizable.strings */,
+			);
+			path = ru.lproj;
 			sourceTree = "<group>";
 		};
 		F2FB92DB15EA705600A5DE37 = {
@@ -210,6 +253,9 @@
 		F2FB92F115EA705600A5DE37 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F2133EC0166399DF0058B8E0 /* uk.lproj */,
+				F292E41D16639114004AEEC8 /* ru.lproj */,
+				F292E416166390D5004AEEC8 /* en.lproj */,
 				F2FD9932164FF8D300B4F837 /* Offtie copy-Info.plist */,
 				F2FB92F215EA705600A5DE37 /* Offtie-Info.plist */,
 				F2FB92F315EA705600A5DE37 /* InfoPlist.strings */,
@@ -272,6 +318,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
+				ru,
+				uk,
 			);
 			mainGroup = F2FB92DB15EA705600A5DE37;
 			productRefGroup = F2FB92E715EA705600A5DE37 /* Products */;
@@ -303,6 +352,12 @@
 				F2FD99391650035900B4F837 /* Default.png in Resources */,
 				F2FD993A1650035900B4F837 /* Default@2x.png in Resources */,
 				F2FD993B1650035900B4F837 /* iTunesArtwork in Resources */,
+				F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */,
+				F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */,
+				F292E42316639139004AEEC8 /* Localizable.strings in Resources */,
+				F2133EBD1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */,
+				F2133EC5166399DF0058B8E0 /* Localizable.strings in Resources */,
+				F2133EC7166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +374,10 @@
 				F2FD9926164EE23800B4F837 /* Icon-72.png in Resources */,
 				F2FD9927164EE23800B4F837 /* Icon-small-50.png in Resources */,
 				F2FD9928164EE23800B4F837 /* iTunesArtwork@2x in Resources */,
+				F2133EBE1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */,
+				F2133EBF1663991B0058B8E0 /* Localizable.strings in Resources */,
+				F2133EC6166399DF0058B8E0 /* Localizable.strings in Resources */,
+				F2133EC8166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +417,54 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F2133EBB1663972B0058B8E0 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2133EBC1663972B0058B8E0 /* ru */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F2133EC1166399DF0058B8E0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2133EC2166399DF0058B8E0 /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F2133EC3166399DF0058B8E0 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2133EC4166399DF0058B8E0 /* uk */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		F292E417166390D6004AEEC8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F292E418166390D6004AEEC8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F292E419166390D6004AEEC8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F292E41A166390D6004AEEC8 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F292E42116639139004AEEC8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F292E42216639139004AEEC8 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F2FB92F315EA705600A5DE37 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -369,7 +476,7 @@
 		F2FB92FC15EA705600A5DE37 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F2FB92FD15EA705600A5DE37 /* en */,
+				F292E41516638F3A004AEEC8 /* Base */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";

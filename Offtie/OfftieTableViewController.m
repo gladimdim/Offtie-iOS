@@ -101,7 +101,7 @@
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"Select twitter account: ";
+    return NSLocalizedString(@"Select twitter account: ", @"");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -148,7 +148,7 @@
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
         cell.textLabel.numberOfLines = 0;
-        cell.textLabel.text = STRING_INSTRUCTION;
+        cell.textLabel.text = NSLocalizedString(@"Add/enable access to accounts at Settings->Twitter", nil);
         cell.accessoryType = UITableViewCellAccessoryNone;
         self.tableView.allowsSelection = NO;
     }
@@ -170,7 +170,7 @@
         sum += [[dictAttributes valueForKey:NSFileSize] intValue];
     }
     sizeOfFiles = [NSNumber numberWithDouble:sum / 1000000.0];
-    self.btnBarDeleteDownloadedData.title =[NSString stringWithFormat:@"Delete offline data: %.1fMb", [sizeOfFiles doubleValue]];
+    self.btnBarDeleteDownloadedData.title =[NSString stringWithFormat:NSLocalizedString(@"Delete offline data: %.1fMb", nil), [sizeOfFiles doubleValue]];
     //self.btnBarDeleteDownloadedData.tintColor = [UIColor redColor];
 }
 

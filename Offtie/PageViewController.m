@@ -60,15 +60,15 @@
 }
 
 -(void) webViewDidFinishLoad:(UIWebView *)webView {
-    self.navigationItem.title = @"Page loaded";
+    self.navigationItem.title = NSLocalizedString(@"Page loaded", nil);
 }
 
 -(void) webViewDidStartLoad:(UIWebView *)webView {
-    self.navigationItem.title = @"Loading page";
+    self.navigationItem.title = NSLocalizedString(@"Loading page", nil);
 }
 
 -(void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    self.navigationItem.title = @"Error loading page";
+    self.navigationItem.title = NSLocalizedString(@"Error loading page", nil);
     //NSLog(@"Error loading page: %@", error);
 }
 

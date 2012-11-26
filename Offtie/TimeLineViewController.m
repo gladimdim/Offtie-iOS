@@ -163,7 +163,7 @@
 -(void) updateBarButtonWithLastDownloadTime {
     NSString *date = [NSDateFormatter localizedStringFromDate:[self getLastDownloadDateTime] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     
-    self.barBtnStatus.title = [NSString stringWithFormat:@"Updated on: %@", date ? date : @"never" ];
+    self.barBtnStatus.title = [NSString stringWithFormat: NSLocalizedString(@"Updated on: %@", nil), date ? date : NSLocalizedString(@"Never", nil) ];
 }
 
 -(void) checkOnlineOfflineMode {
@@ -210,7 +210,7 @@
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                self.barBtnStatus.title = @"Connection error";
+                self.barBtnStatus.title = NSLocalizedString(@"Connection error", nil);
                 self.btnRefreshDownload.enabled = YES;
             });
         }
@@ -233,7 +233,7 @@
         //recieved not-ok response from twitter (either twitter account is disabled in iOS or any other error
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error while getting data" message:@"Please check that Internet connection is available or access is enabled for Offtie application at Settings->Twitter" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error while getting data", nil) message:NSLocalizedString(@"Please check that Internet connection is available or access is enabled for Offtie application at Settings->Twitter", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Close", nil) otherButtonTitles:nil];
                 [alert show];
                 self.btnRefreshDownload.enabled = YES;
                 [self updateBarButtonWithLastDownloadTime];
@@ -301,7 +301,7 @@
         [self.timelineDoc.savedTimeline.dictOfHTMLPagesById addEntriesFromDictionary:dict];
         //update barbutton title to reflect progress of downloads
         self.counterOfDownloads++;
-        self.barBtnStatus.title = [NSString stringWithFormat:@"Downloaded: %i/%i", self.counterOfDownloads, self.amountOfTweetsWithURL];
+        self.barBtnStatus.title = [NSString stringWithFormat:NSLocalizedString(@"Downloaded: %i/%i", nil), self.counterOfDownloads, self.amountOfTweetsWithURL];
         if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
             self.btnRefreshDownload.enabled = YES;
             [self updateBarButtonWithLastDownloadTime];
@@ -324,7 +324,7 @@
 
 
 - (IBAction)btnDownloadTouched:(id)sender {
-    self.barBtnStatus.title = @"Preparing to update";
+    self.barBtnStatus.title = NSLocalizedString(@"Preparing to update", nil);
     //downloading new timeline. If success tweets are autostored to disk
     self.btnRefreshDownload.enabled = NO;
     [self downloadTwitterTimeLine];
