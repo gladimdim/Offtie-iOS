@@ -12,6 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    application.applicationIconBadgeNumber = 0;
     // Override point for customization after application launch.
     return YES;
 }
@@ -26,6 +27,16 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:2];
+    [comps setMonth:12];
+    [comps setYear:2012];
+    [comps setHour:17];
+    [comps setMinute:20];
+    [comps setSecond:00];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:60];
+    [self scheduleAlarmForDate:date];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -38,9 +49,27 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
+
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void) scheduleAlarmForDate:(NSDate *) date {
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray *oldNotifications = [app scheduledLocalNotifications];
+    if (oldNotifications.count > 0) {
+        [app cancelAllLocalNotifications];
+    }
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    if (notification) {
+        notification.fireDate = date;
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        notification.repeatInterval = 0;
+        notification.alertBody = @"Open me to refresh your timeline";
+        notification.applicationIconBadgeNumber = 1;
+        [app scheduleLocalNotification:notification];
+    }
 }
 
 @end
