@@ -187,7 +187,7 @@
             }
             else {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.barBtnStatus.title = @"Getting timeline";
+                    self.barBtnStatus.title = NSLocalizedString(@"Getting timeline", nil);
                 });
                 [self downloadTwitterTimeLine];
             }
