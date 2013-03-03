@@ -7,10 +7,15 @@
         <!--Navigation Controller-->
         <scene sceneID="tSc-Kj-xep">
             <objects>
-                <navigationController id="8Gd-si-ppQ" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="8Gd-si-ppQ" sceneMemberID="viewController">
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ceD-Wa-yXj">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ahp-1k-naK">
+                        <rect key="frame" x="0.0" y="808" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="fWv-Hm-h5E" kind="relationship" relationship="rootViewController" id="OY4-2S-qvX"/>
                     </connections>
@@ -41,27 +46,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" id="zwT-DL-jDM">
-                            <rect key="frame" x="0.0" y="90" width="320" height="170"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <attributedString key="attributedText">
-                                <fragment content="Offtie does:  -access your twitter timeline  -save tweets and pages to your device ">
-                                    <attributes>
-                                        <color key="NSColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="17" name="Helvetica"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="6" headIndent="6"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=" Offtie does not:  -post tweets  -send user data to other servers">
-                                    <attributes>
-                                        <color key="NSColor" red="0.50185347576530615" green="0.50185347576530615" blue="0.50185347576530615" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="17" name="Helvetica"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="6" headIndent="6"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellAccountsList" id="1mx-D2-bZR">
                                 <rect key="frame" x="0.0" y="34" width="320" height="46"/>
@@ -236,34 +220,6 @@
             <point key="canvasLocation" x="343" y="-217"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OfftieTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OfftieTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnBarDeleteDownloadedDataPressed:"/>
-                <relationship kind="action" name="btnRefreshPressed:"/>
-                <relationship kind="outlet" name="btnBarDeleteDownloadedData" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="PageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="TimeLineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimeLineViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="btnDownloadTouched:"/>
-                <relationship kind="outlet" name="barBtnStatus" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="btnRefreshDownload" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

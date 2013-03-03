@@ -42,6 +42,7 @@
         UINavigationController *navController = [self.splitViewController.viewControllers lastObject];
         self.pageViewController = (PageViewController *) [navController.viewControllers lastObject];
     }
+    [self.btnRefreshDownload setTitle:NSLocalizedString(@"Refresh & Download", nil)];
 }
 
 -(void) viewWillAppear:(BOOL)animated {

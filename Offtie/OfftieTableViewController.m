@@ -14,6 +14,7 @@
 
 @interface OfftieTableViewController ()
 @property (assign, nonatomic) ACAccount *twitterAccount;
+@property (strong, nonatomic) IBOutlet UILabel *labelDisclaimer;
 @property NSArray *accounts;
 @property ACAccountStore *accountStore;
 @end
@@ -39,6 +40,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.title = NSLocalizedString(@"Account selection", nil);
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -77,6 +79,7 @@
 {
     [self setBtnBarDeleteDownloadedData:nil];
     [self setTableView:nil];
+    [self setLabelDisclaimer:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

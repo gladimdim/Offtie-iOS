@@ -45,6 +45,9 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        self.navigationItem.title = NSLocalizedString(@"Select page from left menu", nil);
+    }
     [super viewWillAppear:animated];
     self.webView.delegate = self;
     NSLog(@"htmlstring size: %i", self.htmlString.length);
@@ -60,6 +63,7 @@
 - (void)viewDidUnload
 {
     [self setWebView:nil];
+    [self setTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -70,11 +74,15 @@
 }
 
 -(void) webViewDidFinishLoad:(UIWebView *)webView {
-    self.navigationItem.title = NSLocalizedString(@"Page loaded", nil);
+    if (self.htmlString) {
+        self.navigationItem.title = NSLocalizedString(@"Page loaded", nil);
+    }
 }
 
 -(void) webViewDidStartLoad:(UIWebView *)webView {
-    self.navigationItem.title = NSLocalizedString(@"Loading page", nil);
+    if (self.htmlString) {
+        self.navigationItem.title = NSLocalizedString(@"Loading page", nil);
+    }
 }
 
 -(void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
