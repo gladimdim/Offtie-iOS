@@ -13,6 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     application.applicationIconBadgeNumber = 0;
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        UISplitViewController *splitViewController = (UISplitViewController *) self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id) navigationController.topViewController;
+    }
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -34,8 +41,8 @@
     [comps setHour:17];
     [comps setMinute:20];
     [comps setSecond:00];
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:60];
-    [self scheduleAlarmForDate:date];
+   // NSDate *date = [NSDate dateWithTimeIntervalSinceNow:60];
+  //  [self scheduleAlarmForDate:date];
     
 }
 
@@ -55,7 +62,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(void) scheduleAlarmForDate:(NSDate *) date {
+/*-(void) scheduleAlarmForDate:(NSDate *) date {
     UIApplication *app = [UIApplication sharedApplication];
     NSArray *oldNotifications = [app scheduledLocalNotifications];
     if (oldNotifications.count > 0) {
@@ -70,6 +77,6 @@
         notification.applicationIconBadgeNumber = 1;
         [app scheduleLocalNotification:notification];
     }
-}
+}*/
 
 @end

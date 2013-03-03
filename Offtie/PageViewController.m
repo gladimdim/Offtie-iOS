@@ -9,7 +9,7 @@
 #import "PageViewController.h"
 
 @interface PageViewController ()
-
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @end
 
 @implementation PageViewController
@@ -29,6 +29,11 @@
     [self.tabBarController.tabBar setHidden:YES];
     [self setHidesBottomBarWhenPushed:YES];
     [self.webView reload];
+    
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -46,6 +51,11 @@
     [self.webView loadHTMLString:self.htmlString baseURL:nil];
     
 }
+
+-(void) updateWebView {
+    [self.webView loadHTMLString:self.htmlString baseURL:nil];
+}
+
 
 - (void)viewDidUnload
 {
@@ -70,6 +80,17 @@
 -(void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     self.navigationItem.title = NSLocalizedString(@"Error loading page", nil);
     //NSLog(@"Error loading page: %@", error);
+}
+
+-(void) splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
+    barButtonItem.title = NSLocalizedString(@"Timeline", nil);
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = pc;
+}
+
+-(void) splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.masterPopoverController = nil;
 }
 
 @end

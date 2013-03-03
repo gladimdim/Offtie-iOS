@@ -10,6 +10,7 @@
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
 #import "TimeLineViewController.h"
+#import "TimeLineCollectionViewController.h"
 
 @interface OfftieTableViewController ()
 @property (assign, nonatomic) ACAccount *twitterAccount;
@@ -180,6 +181,7 @@
 {
     if (self.accounts) {
         [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
+        //[self performSegueWithIdentifier:@"showCollectionViewTimeline" sender:self];
     }
     else {
         self.accountStore = [[ACAccountStore alloc] init];
@@ -210,6 +212,11 @@
 {
     if ([segue.identifier isEqualToString:@"ShowAccountTimeLine"]) {
         TimeLineViewController *tvc = (TimeLineViewController *) segue.destinationViewController;
+        tvc.twitterAccount = [self.accounts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    }
+    
+    if ([segue.identifier isEqualToString:@"showCollectionViewTimeline"]) {
+        TimeLineCollectionViewController *tvc = (TimeLineCollectionViewController *) segue.destinationViewController;
         tvc.twitterAccount = [self.accounts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
 }

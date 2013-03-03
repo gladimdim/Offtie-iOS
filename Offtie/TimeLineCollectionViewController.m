@@ -1,55 +1,41 @@
 //
-//  TimeLineViewController.m
+//  TimeLineCollectionViewController.m
 //  Offtie
 //
-//  Created by Dmytro Gladkyi on 8/26/12.
+//  Created by Dmytro Gladkyi on 12/16/12.
 //  Copyright (c) 2012 Dmytro Gladkyi. All rights reserved.
 //
 
-#import "TimeLineViewController.h"
+#import "TimeLineCollectionViewController.h"
 #import "PageViewController.h"
-#import "TimelineUIDocument.h"
 
-@interface TimeLineViewController ()
+@interface TimeLineCollectionViewController ()
 @property (strong) NSMutableArray *arrayOfHTMLDicts;
 @property (strong) NSData *twitterResponseData;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) PageViewController *pageViewController;
 @end
 
-@implementation TimeLineViewController
-
 #define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
-/*- (id)initWithStyle:(UITableViewStyle)style
+@implementation TimeLineCollectionViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
-}*/
-
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// Do any additional setup after loading the view.
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        UINavigationController *navController = [self.splitViewController.viewControllers lastObject];
-        self.pageViewController = (PageViewController *) [navController.viewControllers lastObject];
+        self.pageViewController = (PageViewController *) [self.splitViewController.viewControllers lastObject];
     }
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.textFont = [UIFont boldSystemFontOfSize:15.0f];
-    self.barBtnStatus.title = @"Loading data";
-    [self checkOnlineOfflineMode];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,62 +44,49 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
+- (void)viewDidUnload {
+    [self setCollectionView:nil];
+    [super viewDidUnload];
 }
 
--(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
-    CGSize constrains = CGSizeMake(280.0f, MAXFLOAT);
-    CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:UILineBreakModeWordWrap];
-    //NSLog(@"return size: %f", size.height + 30);
-    return size.height + 30;
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    CollectionViewCustomLayout *layout = [[CollectionViewCustomLayout alloc] init];
+    layout.arrayOfData = self.twitterTimeline;
+    self.collectionView.collectionViewLayout = layout;
+
+    self.textFont = [UIFont boldSystemFontOfSize:15.0f];
+    self.barBtnStatus.title = @"Loading data";
+    [self checkOnlineOfflineMode];
+    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
+-(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.twitterTimeline.count;
 }
 
--(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
-    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
-    if (htmlString && ![htmlString isEqualToString:@""]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        return;
-    }
-    else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-
+-(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"CellTimeLine";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.font = self.textFont;
-    cell.textLabel.textAlignment = UITextAlignmentLeft;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
+-(UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"cellTweet";
+    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    UILabel *labelText = (UILabel *) [cell.contentView viewWithTag:2];
+    labelText.font = self.textFont;
+    labelText.textAlignment = UITextAlignmentLeft;
+    labelText.lineBreakMode = UILineBreakModeWordWrap;
+    labelText.adjustsFontSizeToFitWidth = YES;
+    labelText.numberOfLines = 0;
+    labelText.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     
     /*NSString *date = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"created_at"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
-    
-    NSDate *nsDate = [dateFormatter dateFromString:date];
-    [dateFormatter setDateFormat:@"eee dd HH:mm"];
-    */
+     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+     [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
+     
+     NSDate *nsDate = [dateFormatter dateFromString:date];
+     [dateFormatter setDateFormat:@"eee dd HH:mm"];
+     */
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     //Wed Dec 01 17:08:03 +0000 2010
     [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
@@ -126,35 +99,58 @@
     NSString *dateStr = [df stringFromDate:date];
     NSString *authorName = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"user"] valueForKey:@"name"];
     
-    NSString *detailedTextString = [NSString stringWithFormat:@"%@ on %@", authorName , dateStr];
-
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:detailedTextString];
+    UILabel *labelAuthor = (UILabel *) [cell.contentView viewWithTag:1];
+    labelAuthor.text = authorName;
+    UILabel *labelDate = (UILabel *) [cell.contentView viewWithTag:3];
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:authorName];
     [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, authorName.length )];
-    [cell.detailTextLabel setAttributedText:attrString];
+    [labelAuthor setAttributedText:attrString];
+    
+    NSMutableAttributedString *attrStringDate = [[NSMutableAttributedString alloc] initWithString:dateStr];
+    [attrStringDate addAttribute:NSForegroundColorAttributeName value:[UIColor yellowColor] range:NSMakeRange(0, dateStr.length)];
+    [labelDate setAttributedText:attrStringDate];
+        
+//    [cell.detailTextLabel setAttributedText:attrString];
     // Configure the cell...
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
     NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        [self reloadWebView:self.pageViewController];
+    if (htmlString && ![htmlString isEqualToString:@""]) {
+        [self performSegueWithIdentifier:@"ShowWebView" sender:self];
     }
     else {
-        if (htmlString && ![htmlString isEqualToString:@""]) {
-            [self performSegueWithIdentifier:@"ShowWebView" sender:self];
-        }
-        else {
-            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
     }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /*NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
+     if (urlArray.count > 0) {
+     NSString *url = [urlArray objectAtIndex:0];
+     if (url) {
+     NSLog(@"url: %@", url);
+     PageViewController *pageView = (PageViewController *) segue.destinationViewController;
+     pageView.urlString = url;
+     //[webView loadRequest:request];
+     }
+     }*/
+    PageViewController *pageView = (PageViewController *) segue.destinationViewController;
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] lastObject];
+    NSInteger selectedRow = indexPath.row;
+    NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
+    
+    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:id];
+    pageView.htmlString = htmlString;
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 //save last downloaded time for selected twitter account name. date is saved under different keys for different accounts.
 //the format of key is: username-NSDate.
 -(NSDate *) updateLastDownloadDateTime {
-
+    
     NSDate *currentDate = [NSDate date];
     NSLog(@"date update: %@", currentDate);
     
@@ -179,7 +175,7 @@
 -(void) checkOnlineOfflineMode {
     NSURL *baseURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *docURL = [NSURL URLWithString:[[baseURL absoluteString]  stringByAppendingString:self.twitterAccount.username]];
-
+    
     if (!self.timelineDoc) {
         self.timelineDoc = [[TimelineUIDocument alloc] initWithFileURL:docURL];
         [self.timelineDoc openWithCompletionHandler:^(BOOL success){
@@ -191,7 +187,7 @@
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.barBtnStatus.title = @"Found offline files";
                         [self updateBarButtonWithLastDownloadTime];
-                        [self.tableView reloadData];
+                        [self.collectionView reloadData];
                     });
                 }
             }
@@ -235,7 +231,7 @@
                 dispatch_async(dispatch_get_main_queue(), ^{
                     //update last download time
                     [self updateLastDownloadDateTime];
-                    [self.tableView reloadData];
+                    [self.collectionView reloadData];
                     [self saveTweetsToDisk];
                 });
             }
@@ -250,34 +246,6 @@
             });
         }
     }];
-}
-
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
-    if (urlArray.count > 0) {
-        NSString *url = [urlArray objectAtIndex:0];
-        if (url) {
-            NSLog(@"url: %@", url);
-            PageViewController *pageView = (PageViewController *) segue.destinationViewController;
-            pageView.urlString = url;
-            //[webView loadRequest:request];
-        }
-    }*/
-    PageViewController *pageView = (PageViewController *) segue.destinationViewController;
-    [self reloadWebView:pageView];
-}
-
--(void) reloadWebView:(PageViewController *) pageView {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSInteger selectedRow = indexPath.row;
-    NSString *id = [[[self.twitterTimeline objectAtIndex:selectedRow] valueForKey:@"id"] stringValue];
-    NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:id];
-    pageView.htmlString = htmlString;
-    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-    
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        [pageView updateWebView];
-    }    
 }
 
 -(void) saveTweetsToDisk {
@@ -314,7 +282,7 @@
 -(void) downloadedDict:(NSDictionary *) dict {
     //NSLog(@"entering downloadedDict with dict: %@", dict);
     if (dict) {
-//        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
+        //        [self.timelineDoc.savedTimeline.setOfHTMLPagesById addObject:dict];
         [self.timelineDoc.savedTimeline.dictOfHTMLPagesById addEntriesFromDictionary:dict];
         //update barbutton title to reflect progress of downloads
         self.counterOfDownloads++;
@@ -322,7 +290,7 @@
         if (self.counterOfDownloads == self.amountOfTweetsWithURL) {
             self.btnRefreshDownload.enabled = YES;
             [self updateBarButtonWithLastDownloadTime];
-            [self.tableView reloadData];
+            [self.collectionView reloadData];
         }
     }
     [self.timelineDoc updateChangeCount:UIDocumentChangeDone];
@@ -347,10 +315,6 @@
     [self downloadTwitterTimeLine];
 }
 
-- (void)viewDidUnload {
-    [self setBarBtnStatus:nil];
-    [self setTableView:nil];
-    [self setBtnRefreshDownload:nil];
-    [super viewDidUnload];
-}
+
+
 @end
