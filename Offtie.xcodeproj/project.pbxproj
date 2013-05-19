@@ -38,6 +38,12 @@
 		F2B27C2816E3F2E2005039EC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99361650035900B4F837 /* Default@2x.png */; };
 		F2B27C2916E3F2E6005039EC /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99371650035900B4F837 /* iTunesArtwork */; };
 		F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC4A11604888300DC35E3 /* PageViewController.m */; };
+		F2F3F4E81748F338002AA14E /* MainStoryboard_iPhone_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D20216E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard */; };
+		F2F3F4E91748F34A002AA14E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F223D20A16E3CD3E00389437 /* Localizable.strings */; };
+		F2F3F4EA1748F34A002AA14E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
+		F2F3F4EB1748F42D002AA14E /* MainStoryboard_iPhone_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D20216E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard */; };
+		F2F3F4EC1748F431002AA14E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F223D20A16E3CD3E00389437 /* Localizable.strings */; };
+		F2F3F4ED1748F435002AA14E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
 		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
 		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
 		F2FB92EF15EA705600A5DE37 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */; };
@@ -363,6 +369,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2F3F4E91748F34A002AA14E /* Localizable.strings in Resources */,
+				F2F3F4EA1748F34A002AA14E /* Localizable.strings in Resources */,
+				F2F3F4E81748F338002AA14E /* MainStoryboard_iPhone_en.storyboard in Resources */,
 				F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */,
 				F278D97B1630928B006FED6B /* Icon.png in Resources */,
 				F278D97D16309500006FED6B /* Icon@2x.png in Resources */,
@@ -409,6 +418,9 @@
 				F2B27C1F16E3E8B7005039EC /* Default-Landscape~ipad.png in Resources */,
 				F2B27C2316E3EC45005039EC /* Default-Portrait@2x~ipad.png in Resources */,
 				F2B27C2516E3EC45005039EC /* Default-Portrait~ipad.png in Resources */,
+				F2F3F4EB1748F42D002AA14E /* MainStoryboard_iPhone_en.storyboard in Resources */,
+				F2F3F4EC1748F431002AA14E /* Localizable.strings in Resources */,
+				F2F3F4ED1748F435002AA14E /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
