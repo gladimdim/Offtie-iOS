@@ -1,0 +1,42 @@
+
+/* Class = "IBUIBarButtonItem"; title = "Refresh & Download"; ObjectID = "CSr-ZS-lO9"; */
+"CSr-ZS-lO9.title" = "Оновити і завантажити";
+
+/* Class = "IBUILabel"; text = "Date"; ObjectID = "FGK-WN-Ksy"; */
+"FGK-WN-Ksy.text" = "Date";
+
+/* Class = "IBUILabel"; text = "Subtitle"; ObjectID = "FKJ-JU-utT"; */
+"FKJ-JU-utT.text" = "Subtitle";
+
+/* Class = "IBUILabel"; text = "Title"; ObjectID = "PFB-2M-ITh"; */
+"PFB-2M-ITh.text" = "Title";
+
+/* Class = "IBUILabel"; text = "Who Posted:"; ObjectID = "U1i-xW-Oab"; */
+"U1i-xW-Oab.text" = "Who Posted:";
+
+/* Class = "IBUIBarButtonItem"; title = "Refresh & Download"; ObjectID = "dEn-4E-Ich"; */
+"dEn-4E-Ich.title" = "Refresh & Download";
+
+/* Class = "IBUIBarButtonItem"; title = "Item"; ObjectID = "e0b-n9-WMq"; */
+"e0b-n9-WMq.title" = "Item";
+
+/* Class = "IBUINavigationItem"; title = "Account selection"; ObjectID = "g7j-OQ-VVC"; */
+"g7j-OQ-VVC.title" = "Обліковий запис";
+
+/* Class = "IBUITableViewController"; title = "Tweets"; ObjectID = "g9x-Vs-688"; */
+"g9x-Vs-688.title" = "Tweets";
+
+/* Class = "IBUILabel"; text = "Date"; ObjectID = "jAC-pG-VSY"; */
+"jAC-pG-VSY.text" = "Date";
+
+/* Class = "IBUILabel"; text = "Who Posted:"; ObjectID = "mcU-qN-S1a"; */
+"mcU-qN-S1a.text" = "Who Posted:";
+
+/* Class = "IBUIBarButtonItem"; title = "Delete downloaded data:"; ObjectID = "ogQ-3z-ban"; */
+"ogQ-3z-ban.title" = "Delete downloaded data:";
+
+/* Class = "IBUILabel"; text = "What was posted:"; ObjectID = "pZU-4Q-ToH"; */
+"pZU-4Q-ToH.text" = "What was posted:";
+
+/* Class = "IBUILabel"; text = "What was posted:"; ObjectID = "yQi-4F-rSw"; */
+"yQi-4F-rSw.text" = "What was posted:";
