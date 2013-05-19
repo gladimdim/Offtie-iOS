@@ -8,13 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F20DA001167E69AC00E93CC8 /* TimeLineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20DA000167E69AC00E93CC8 /* TimeLineCollectionViewController.m */; };
-		F2133EBF1663991B0058B8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
 		F223D1C316E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
 		F223D1C416E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
-		F223D20416E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D20216E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard */; };
-		F223D20516E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D20216E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard */; };
-		F223D20C16E3CD3E00389437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F223D20A16E3CD3E00389437 /* Localizable.strings */; };
-		F223D20D16E3CD3E00389437 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F223D20A16E3CD3E00389437 /* Localizable.strings */; };
 		F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
 		F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA815EA8CE400C99909 /* Twitter.framework */; };
 		F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */; };
@@ -28,7 +23,6 @@
 		F278D98316309972006FED6B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D98216309972006FED6B /* Icon-Small.png */; };
 		F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E417166390D6004AEEC8 /* InfoPlist.strings */; };
 		F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E419166390D6004AEEC8 /* Localizable.strings */; };
-		F292E42316639139004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E42116639139004AEEC8 /* Localizable.strings */; };
 		F2B27C1816E3E127005039EC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C1716E3E127005039EC /* Icon-72@2x.png */; };
 		F2B27C1916E3E127005039EC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C1716E3E127005039EC /* Icon-72@2x.png */; };
 		F2B27C1B16E3E7C8005039EC /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C1A16E3E7C8005039EC /* Default-Landscape@2x~ipad.png */; };
@@ -39,6 +33,10 @@
 		F2B27C2316E3EC45005039EC /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C2016E3EC44005039EC /* Default-Portrait@2x~ipad.png */; };
 		F2B27C2416E3EC45005039EC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C2116E3EC44005039EC /* Default-Portrait~ipad.png */; };
 		F2B27C2516E3EC45005039EC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C2116E3EC44005039EC /* Default-Portrait~ipad.png */; };
+		F2B27C2616E3F2B0005039EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99341650035900B4F837 /* Default-568h@2x.png */; };
+		F2B27C2716E3F2C4005039EC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99351650035900B4F837 /* Default.png */; };
+		F2B27C2816E3F2E2005039EC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99361650035900B4F837 /* Default@2x.png */; };
+		F2B27C2916E3F2E6005039EC /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99371650035900B4F837 /* iTunesArtwork */; };
 		F2DAC4A21604888300DC35E3 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DAC4A11604888300DC35E3 /* PageViewController.m */; };
 		F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EA15EA705600A5DE37 /* UIKit.framework */; };
 		F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2FB92EC15EA705600A5DE37 /* Foundation.framework */; };
@@ -380,10 +378,7 @@
 				F2FD993B1650035900B4F837 /* iTunesArtwork in Resources */,
 				F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */,
 				F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */,
-				F292E42316639139004AEEC8 /* Localizable.strings in Resources */,
 				F223D1C316E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */,
-				F223D20416E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard in Resources */,
-				F223D20C16E3CD3E00389437 /* Localizable.strings in Resources */,
 				F2B27C1816E3E127005039EC /* Icon-72@2x.png in Resources */,
 				F2B27C1B16E3E7C8005039EC /* Default-Landscape@2x~ipad.png in Resources */,
 				F2B27C1E16E3E8B7005039EC /* Default-Landscape~ipad.png in Resources */,
@@ -396,6 +391,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B27C2916E3F2E6005039EC /* iTunesArtwork in Resources */,
+				F2B27C2816E3F2E2005039EC /* Default@2x.png in Resources */,
+				F2B27C2716E3F2C4005039EC /* Default.png in Resources */,
+				F2B27C2616E3F2B0005039EC /* Default-568h@2x.png in Resources */,
 				F2FD991F164EE23800B4F837 /* InfoPlist.strings in Resources */,
 				F2FD9922164EE23800B4F837 /* Icon.png in Resources */,
 				F2FD9923164EE23800B4F837 /* Icon@2x.png in Resources */,
@@ -404,10 +403,7 @@
 				F2FD9926164EE23800B4F837 /* Icon-72.png in Resources */,
 				F2FD9927164EE23800B4F837 /* Icon-small-50.png in Resources */,
 				F2FD9928164EE23800B4F837 /* iTunesArtwork@2x in Resources */,
-				F2133EBF1663991B0058B8E0 /* Localizable.strings in Resources */,
 				F223D1C416E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */,
-				F223D20516E3CB0A00389437 /* MainStoryboard_iPhone_en.storyboard in Resources */,
-				F223D20D16E3CD3E00389437 /* Localizable.strings in Resources */,
 				F2B27C1916E3E127005039EC /* Icon-72@2x.png in Resources */,
 				F2B27C1C16E3E7C8005039EC /* Default-Landscape@2x~ipad.png in Resources */,
 				F2B27C1F16E3E8B7005039EC /* Default-Landscape~ipad.png in Resources */,
@@ -608,7 +604,7 @@
 				INFOPLIST_FILE = "Offtie copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Offtie;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,7 +619,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Offtie;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "220437B5-4720-456A-9A54-4F42047385D9";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
