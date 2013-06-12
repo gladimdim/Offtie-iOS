@@ -70,7 +70,7 @@
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     CGSize constrains = CGSizeMake(280.0f, MAXFLOAT);
-    CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:UILineBreakModeWordWrap];
+    CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:NSLineBreakByWordWrapping];
     //NSLog(@"return size: %f", size.height + 30);
     return size.height + 30;
 }
@@ -102,8 +102,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     cell.textLabel.font = self.textFont;
-    cell.textLabel.textAlignment = UITextAlignmentLeft;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;//UILineBreakModeWordWrap;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];

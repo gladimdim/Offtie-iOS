@@ -126,7 +126,7 @@
     else {
         CGSize constraints = CGSizeMake(280.0f, MAXFLOAT);
         NSString *errorString = STRING_INSTRUCTION;
-        CGFloat height = [errorString sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:constraints lineBreakMode:UILineBreakModeWordWrap].height + 30;
+        CGFloat height = [errorString sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 30;
         return height;
     }
 
@@ -148,8 +148,8 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else {
-        cell.textLabel.textAlignment = UITextAlignmentLeft;
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.textAlignment = NSTextAlignmentLeft;
+        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.text = NSLocalizedString(@"Add/enable access to accounts at Settings->Twitter", nil);
@@ -184,6 +184,7 @@
 {
     if (self.accounts) {
         [self performSegueWithIdentifier:@"ShowAccountTimeLine" sender:self];
+        
         //[self performSegueWithIdentifier:@"showCollectionViewTimeline" sender:self];
     }
     else {

@@ -74,8 +74,8 @@
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     UILabel *labelText = (UILabel *) [cell.contentView viewWithTag:2];
     labelText.font = self.textFont;
-    labelText.textAlignment = UITextAlignmentLeft;
-    labelText.lineBreakMode = UILineBreakModeWordWrap;
+    labelText.textAlignment = NSTextAlignmentLeft;
+    labelText.lineBreakMode = NSLineBreakByWordWrapping;
     labelText.adjustsFontSizeToFitWidth = YES;
     labelText.numberOfLines = 0;
     labelText.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
