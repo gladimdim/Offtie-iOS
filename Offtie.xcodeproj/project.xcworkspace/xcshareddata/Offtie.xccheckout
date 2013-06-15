@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>33446E2D-C691-45C3-A6EC-3EB8A5D923D9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Offtie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>48CD24D4-75CC-45CC-8410-2B7DD3EF97F6</key>
+		<string>ssh://github.com/gladimdim/Offtie-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Offtie.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>48CD24D4-75CC-45CC-8410-2B7DD3EF97F6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/gladimdim/Offtie-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>48CD24D4-75CC-45CC-8410-2B7DD3EF97F6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>48CD24D4-75CC-45CC-8410-2B7DD3EF97F6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Offtie</string>
+		</dict>
+	</array>
+</dict>
+</plist>

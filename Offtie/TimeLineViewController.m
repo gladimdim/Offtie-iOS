@@ -20,6 +20,18 @@
 
 #define LAST_DOWNLOAD_DATE_TIME @"lastDownloadDateTime"
 
+NSUInteger DeviceSystemMajorVersion();
+NSUInteger DeviceSystemMajorVersion() {
+    static NSUInteger _deviceSystemMajorVersion = -1;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _deviceSystemMajorVersion = [[[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."] objectAtIndex:0] intValue];
+    });
+    return _deviceSystemMajorVersion;
+}
+
+#define IOS7_VERSION (DeviceSystemMajorVersion() >= 7)
+
 /*- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -47,10 +59,9 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.textFont = [UIFont boldSystemFontOfSize:15.0f];
+    self.textFont = IOS7_VERSION ? [UIFont fontWithName:@"HelveticaNeue-Light" size:18] :[UIFont boldSystemFontOfSize:15.0f];
     self.barBtnStatus.title = @"Loading data";
     [self checkOnlineOfflineMode];
-    
 }
 
 - (void)didReceiveMemoryWarning
