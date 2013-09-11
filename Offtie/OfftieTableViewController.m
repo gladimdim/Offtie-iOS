@@ -111,7 +111,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if (self.accounts) {
+    if (self.accounts.count > 0) {
         return [self.accounts count];
     }
     else {
@@ -141,7 +141,8 @@
     }
     
     // Configure the cell...
-    ACAccount *acc = [self.accounts objectAtIndex:indexPath.row];
+    
+    ACAccount *acc = self.accounts.count > 0 ? [self.accounts objectAtIndex:indexPath.row] : nil;
     if (acc) {
         cell.textLabel.text = acc.username;
         self.tableView.allowsSelection = YES;

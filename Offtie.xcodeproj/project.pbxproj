@@ -10,6 +10,7 @@
 		F20DA001167E69AC00E93CC8 /* TimeLineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20DA000167E69AC00E93CC8 /* TimeLineCollectionViewController.m */; };
 		F223D1C316E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
 		F223D1C416E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
+		F23609FC17E105DF002B9D14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23609FB17E105DF002B9D14 /* Images.xcassets */; };
 		F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
 		F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA815EA8CE400C99909 /* Twitter.framework */; };
 		F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */; };
@@ -88,6 +89,7 @@
 		F223D1F816E3C7C800389437 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad_en.storyboard; sourceTree = "<group>"; };
 		F223D20B16E3CD3E00389437 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
 		F223D21116E3D03800389437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone_en.storyboard; sourceTree = "<group>"; };
+		F23609FB17E105DF002B9D14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F23A0BA515EA8C6D00C99909 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F23A0BA815EA8CE400C99909 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F23A0BAA15EAA14C00C99909 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				F278D964162C10AD006FED6B /* SavedTimeline.m */,
 				F278D966162C1684006FED6B /* Downloader.h */,
 				F278D967162C1684006FED6B /* Downloader.m */,
+				F23609FB17E105DF002B9D14 /* Images.xcassets */,
 			);
 			path = Offtie;
 			sourceTree = "<group>";
@@ -341,6 +344,14 @@
 				CLASSPREFIX = Offtie;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Dmytro Gladkyi";
+				TargetAttributes = {
+					F2FB92E515EA705600A5DE37 = {
+						DevelopmentTeam = 29UL2Y36R9;
+					};
+					F2FD990E164EE23800B4F837 = {
+						DevelopmentTeam = 29UL2Y36R9;
+					};
+				};
 			};
 			buildConfigurationList = F2FB92E015EA705600A5DE37 /* Build configuration list for PBXProject "Offtie" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -370,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F3F4E91748F34A002AA14E /* Localizable.strings in Resources */,
+				F23609FC17E105DF002B9D14 /* Images.xcassets in Resources */,
 				F2F3F4EA1748F34A002AA14E /* Localizable.strings in Resources */,
 				F2F3F4E81748F338002AA14E /* MainStoryboard_iPhone_en.storyboard in Resources */,
 				F2FB92F515EA705600A5DE37 /* InfoPlist.strings in Resources */,
@@ -589,10 +601,13 @@
 		F2FB930815EA705600A5DE37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -602,11 +617,14 @@
 		F2FB930915EA705600A5DE37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dmytro Gladkyi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "220437B5-4720-456A-9A54-4F42047385D9";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -618,6 +636,7 @@
 		F2FD992D164EE23800B4F837 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
 				INFOPLIST_FILE = "Offtie copy-Info.plist";
@@ -631,6 +650,7 @@
 		F2FD992E164EE23800B4F837 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dmytro Gladkyi";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Offtie/Offtie-Prefix.pch";
