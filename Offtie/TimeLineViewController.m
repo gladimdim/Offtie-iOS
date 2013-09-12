@@ -116,7 +116,7 @@ NSUInteger DeviceSystemMajorVersion() {
     cell.textLabel.font = self.textFont;
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;//UILineBreakModeWordWrap;
-    cell.textLabel.adjustsFontSizeToFitWidth = YES;
+    cell.textLabel.adjustsFontSizeToFitWidth = IOS7_VERSION ? YES : NO;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     
