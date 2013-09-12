@@ -96,11 +96,12 @@ NSUInteger DeviceSystemMajorVersion() {
     NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
     NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
     if (htmlString && ![htmlString isEqualToString:@""]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        return;
+//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
+//        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.textColor = [UIColor lightGrayColor];
     }
 
 }
