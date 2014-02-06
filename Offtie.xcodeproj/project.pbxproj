@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F20DA001167E69AC00E93CC8 /* TimeLineCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F20DA000167E69AC00E93CC8 /* TimeLineCollectionViewController.m */; };
 		F223D1C316E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
 		F223D1C416E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */; };
 		F23609FC17E105DF002B9D14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23609FB17E105DF002B9D14 /* Images.xcassets */; };
 		F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
-		F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA815EA8CE400C99909 /* Twitter.framework */; };
 		F23A0BAC15EAA14C00C99909 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */; };
-		F24CB3791680F00400D3ABA3 /* CollectionViewCustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F24CB3781680F00400D3ABA3 /* CollectionViewCustomLayout.m */; };
 		F278D95D162BFE60006FED6B /* TimelineUIDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D95C162BFE60006FED6B /* TimelineUIDocument.m */; };
 		F278D965162C10AD006FED6B /* SavedTimeline.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D964162C10AD006FED6B /* SavedTimeline.m */; };
 		F278D968162C1684006FED6B /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F278D967162C1684006FED6B /* Downloader.m */; };
@@ -22,6 +19,7 @@
 		F278D97D16309500006FED6B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D97C16309500006FED6B /* Icon@2x.png */; };
 		F278D981163098DF006FED6B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D980163098DF006FED6B /* Icon-Small@2x.png */; };
 		F278D98316309972006FED6B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = F278D98216309972006FED6B /* Icon-Small.png */; };
+		F287E4B318A03424006F32B8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F287E4B218A03424006F32B8 /* Social.framework */; };
 		F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E417166390D6004AEEC8 /* InfoPlist.strings */; };
 		F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E419166390D6004AEEC8 /* Localizable.strings */; };
 		F2B27C1816E3E127005039EC /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2B27C1716E3E127005039EC /* Icon-72@2x.png */; };
@@ -84,8 +82,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F20D9FFF167E69AC00E93CC8 /* TimeLineCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineCollectionViewController.h; sourceTree = "<group>"; };
-		F20DA000167E69AC00E93CC8 /* TimeLineCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineCollectionViewController.m; sourceTree = "<group>"; };
 		F223D1F816E3C7C800389437 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad_en.storyboard; sourceTree = "<group>"; };
 		F223D20B16E3CD3E00389437 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
 		F223D21116E3D03800389437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone_en.storyboard; sourceTree = "<group>"; };
@@ -94,8 +90,6 @@
 		F23A0BA815EA8CE400C99909 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		F23A0BAA15EAA14C00C99909 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
 		F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
-		F24CB3771680F00400D3ABA3 /* CollectionViewCustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCustomLayout.h; sourceTree = "<group>"; };
-		F24CB3781680F00400D3ABA3 /* CollectionViewCustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCustomLayout.m; sourceTree = "<group>"; };
 		F278D95B162BFE60006FED6B /* TimelineUIDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineUIDocument.h; sourceTree = "<group>"; };
 		F278D95C162BFE60006FED6B /* TimelineUIDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineUIDocument.m; sourceTree = "<group>"; };
 		F278D963162C10AD006FED6B /* SavedTimeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedTimeline.h; sourceTree = "<group>"; };
@@ -106,6 +100,7 @@
 		F278D97C16309500006FED6B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Offtie/Resources/Icon@2x.png"; sourceTree = "<group>"; };
 		F278D980163098DF006FED6B /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Offtie/Resources/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		F278D98216309972006FED6B /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Offtie/Resources/Icon-Small.png"; sourceTree = "<group>"; };
+		F287E4B218A03424006F32B8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F292E418166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F292E41A166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		F292E42216639139004AEEC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
@@ -144,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23A0BA915EA8CE400C99909 /* Twitter.framework in Frameworks */,
+				F287E4B318A03424006F32B8 /* Social.framework in Frameworks */,
 				F23A0BA615EA8C6D00C99909 /* Accounts.framework in Frameworks */,
 				F2FB92EB15EA705600A5DE37 /* UIKit.framework in Frameworks */,
 				F2FB92ED15EA705600A5DE37 /* Foundation.framework in Frameworks */,
@@ -184,10 +179,6 @@
 				F23A0BAB15EAA14C00C99909 /* TimeLineViewController.m */,
 				F2DAC4A01604888300DC35E3 /* PageViewController.h */,
 				F2DAC4A11604888300DC35E3 /* PageViewController.m */,
-				F20D9FFF167E69AC00E93CC8 /* TimeLineCollectionViewController.h */,
-				F20DA000167E69AC00E93CC8 /* TimeLineCollectionViewController.m */,
-				F24CB3771680F00400D3ABA3 /* CollectionViewCustomLayout.h */,
-				F24CB3781680F00400D3ABA3 /* CollectionViewCustomLayout.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -258,6 +249,7 @@
 		F2FB92E915EA705600A5DE37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F287E4B218A03424006F32B8 /* Social.framework */,
 				F2FB92EA15EA705600A5DE37 /* UIKit.framework */,
 				F2FB92EC15EA705600A5DE37 /* Foundation.framework */,
 				F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */,
@@ -451,8 +443,6 @@
 				F278D95D162BFE60006FED6B /* TimelineUIDocument.m in Sources */,
 				F278D965162C10AD006FED6B /* SavedTimeline.m in Sources */,
 				F278D968162C1684006FED6B /* Downloader.m in Sources */,
-				F20DA001167E69AC00E93CC8 /* TimeLineCollectionViewController.m in Sources */,
-				F24CB3791680F00400D3ABA3 /* CollectionViewCustomLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +600,7 @@
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A6CB65A8-1EE2-488D-9AC3-703CED585A8C";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -628,7 +618,7 @@
 				INFOPLIST_FILE = "Offtie/Offtie-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BDD373D9-B68D-495D-9111-C3D9CC68BA0A";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "25A3748B-5661-40F3-92E5-4597D58396CD";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;

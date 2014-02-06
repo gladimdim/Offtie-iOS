@@ -226,9 +226,10 @@ NSUInteger DeviceSystemMajorVersion() {
     self.counterOfDownloads = 0;
     self.amountOfTweetsWithURL = 0;
     
-    NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:@"20" forKey:@"count"];
-    TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
+    NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"]; //home
+    NSDictionary *dict = @{@"count": @"20"};
+    //TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
+    SLRequest *timeLineRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:dict];
     timeLineRequest.account = self.twitterAccount;
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (error) {

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Accounts/Accounts.h>
-#import <Twitter/Twitter.h>
 #import "Downloader.h"
+#import <Social/Social.h>
 
 @interface TimeLineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DownloaderCallBack>
 @property (strong, nonatomic) ACAccount *twitterAccount;

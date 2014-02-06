@@ -7,10 +7,9 @@
 //
 
 #import "OfftieTableViewController.h"
-#import <Twitter/Twitter.h>
+#import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "TimeLineViewController.h"
-#import "TimeLineCollectionViewController.h"
 
 @interface OfftieTableViewController ()
 @property (assign, nonatomic) ACAccount *twitterAccount;
@@ -52,25 +51,24 @@
     self.accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accountTypeTwitter =
     [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter
-                                 withCompletionHandler:^(BOOL granted, NSError *error) {
-                                     if (granted) {
-                                         dispatch_sync(dispatch_get_main_queue(), ^{
-                                             self.accounts = [self.accountStore
-                                                              accountsWithAccountType:accountTypeTwitter];
-                                             [self.tableView reloadData];
-                                         });
-                                     }
-                                     else {
-                                         NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
-                                         self.accounts = nil;
-                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                             [self.tableView reloadData];
-                                         });
-                                         
-                                     }
-     
-                                 }];
+    [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter options:nil completion:^(BOOL granted, NSError *error) {
+         if (granted) {
+             dispatch_sync(dispatch_get_main_queue(), ^{
+                 self.accounts = [self.accountStore
+                                  accountsWithAccountType:accountTypeTwitter];
+                 [self.tableView reloadData];
+             });
+         }
+         else {
+             NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
+             self.accounts = nil;
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+             });
+             
+         }
+
+     }];
     [self updateBarButtonDataStatistics];
 
 }
@@ -190,24 +188,22 @@
     }
     else {
         self.accountStore = [[ACAccountStore alloc] init];
-        ACAccountType *accountTypeTwitter =
-        [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-        [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter
-                                     withCompletionHandler:^(BOOL granted, NSError *error) {
-                                         if (granted) {
-                                             dispatch_sync(dispatch_get_main_queue(), ^{
-                                                 self.accounts = [self.accountStore
-                                                                  accountsWithAccountType:accountTypeTwitter];
-                                                 [self.tableView reloadData];
-                                             });
-                                         }
-                                         else {
-                                             NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
-                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                 [self.tableView reloadData];
-                                             });
-                                         }
-                                     }];
+        ACAccountType *accountTypeTwitter = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+        [self.accountStore requestAccessToAccountsWithType:accountTypeTwitter options:nil completion:^(BOOL granted, NSError *error) {
+             if (granted) {
+                 dispatch_sync(dispatch_get_main_queue(), ^{
+                     self.accounts = [self.accountStore
+                                      accountsWithAccountType:accountTypeTwitter];
+                     [self.tableView reloadData];
+                 });
+             }
+             else {
+                 NSLog(@"Error occured while requesting access to twitter: %@", [error.userInfo valueForKey:NSLocalizedDescriptionKey]);
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [self.tableView reloadData];
+                 });
+             }
+         }];
         [self updateBarButtonDataStatistics];
 
     }
@@ -217,11 +213,6 @@
 {
     if ([segue.identifier isEqualToString:@"ShowAccountTimeLine"]) {
         TimeLineViewController *tvc = (TimeLineViewController *) segue.destinationViewController;
-        tvc.twitterAccount = [self.accounts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
-    }
-    
-    if ([segue.identifier isEqualToString:@"showCollectionViewTimeline"]) {
-        TimeLineCollectionViewController *tvc = (TimeLineCollectionViewController *) segue.destinationViewController;
         tvc.twitterAccount = [self.accounts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
 }
