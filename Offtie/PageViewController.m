@@ -50,9 +50,7 @@
     }
     [super viewWillAppear:animated];
     self.webView.delegate = self;
-    NSLog(@"htmlstring size: %i", self.htmlString.length);
     [self.webView loadHTMLString:self.htmlString baseURL:nil];
-    
 }
 
 -(void) updateWebView {
@@ -75,7 +73,8 @@
 
 -(void) webViewDidFinishLoad:(UIWebView *)webView {
     if (self.htmlString) {
-        self.navigationItem.title = NSLocalizedString(@"Page loaded", nil);
+        self.navigationItem.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+        //self.navigationItem.title = NSLocalizedString(@"Page loaded", nil);
     }
 }
 

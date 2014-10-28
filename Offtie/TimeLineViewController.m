@@ -32,16 +32,6 @@ NSUInteger DeviceSystemMajorVersion() {
 
 #define IOS7_VERSION (DeviceSystemMajorVersion() >= 7)
 
-/*- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}*/
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -64,17 +54,10 @@ NSUInteger DeviceSystemMajorVersion() {
     [self checkOnlineOfflineMode];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
@@ -82,13 +65,12 @@ NSUInteger DeviceSystemMajorVersion() {
     NSString *text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
     CGSize constrains = CGSizeMake(280.0f, MAXFLOAT);
     CGSize size = [text sizeWithFont:self.textFont constrainedToSize:constrains lineBreakMode:NSLineBreakByWordWrapping];
-    //NSLog(@"return size: %f", size.height + 30);
+
     return size.height + 30;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return self.twitterTimeline.count;
 }
 
@@ -96,14 +78,11 @@ NSUInteger DeviceSystemMajorVersion() {
     NSString *tweetId = [[[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"id"] stringValue];
     NSString *htmlString = [self.timelineDoc.savedTimeline.dictOfHTMLPagesById valueForKey:tweetId];
     if (htmlString && ![htmlString isEqualToString:@""]) {
-//        cell.accessoryType = UITableViewCellAccessoryCheckmark;
         cell.textLabel.textColor = [UIColor blackColor];
     }
     else {
-//        cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.textColor = [UIColor lightGrayColor];
     }
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,14 +98,7 @@ NSUInteger DeviceSystemMajorVersion() {
     cell.textLabel.adjustsFontSizeToFitWidth = IOS7_VERSION ? YES : NO;
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.text = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"text"];
-    
-    /*NSString *date = [[self.twitterTimeline objectAtIndex:indexPath.row] valueForKey:@"created_at"];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"eee MMM dd HH:mm:ss ZZZZ yyyy"];
-    
-    NSDate *nsDate = [dateFormatter dateFromString:date];
-    [dateFormatter setDateFormat:@"eee dd HH:mm"];
-    */
+
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     //Wed Dec 01 17:08:03 +0000 2010
     [df setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
@@ -144,7 +116,7 @@ NSUInteger DeviceSystemMajorVersion() {
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:detailedTextString];
     [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(0, authorName.length )];
     [cell.detailTextLabel setAttributedText:attrString];
-    // Configure the cell...
+
     return cell;
 }
 
@@ -228,7 +200,6 @@ NSUInteger DeviceSystemMajorVersion() {
     
     NSURL *url = [[NSURL alloc] initWithString:@"https://api.twitter.com/1.1/statuses/home_timeline.json"]; //home
     NSDictionary *dict = @{@"count": @"20"};
-    //TWRequest *timeLineRequest = [[TWRequest alloc] initWithURL:url parameters:dict requestMethod:TWRequestMethodGET];
     SLRequest *timeLineRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:url parameters:dict];
     timeLineRequest.account = self.twitterAccount;
     [timeLineRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
@@ -267,16 +238,6 @@ NSUInteger DeviceSystemMajorVersion() {
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*NSArray *urlArray = [[[[self.twitterTimeline objectAtIndex:self.tableView.indexPathForSelectedRow.row] valueForKey:@"entities"] valueForKey:@"urls"] valueForKey:@"url"];
-    if (urlArray.count > 0) {
-        NSString *url = [urlArray objectAtIndex:0];
-        if (url) {
-            NSLog(@"url: %@", url);
-            PageViewController *pageView = (PageViewController *) segue.destinationViewController;
-            pageView.urlString = url;
-            //[webView loadRequest:request];
-        }
-    }*/
     PageViewController *pageView = (PageViewController *) segue.destinationViewController;
     [self reloadWebView:pageView];
 }
