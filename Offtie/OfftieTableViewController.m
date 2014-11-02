@@ -73,16 +73,6 @@
 
 }
 
-- (void)viewDidUnload
-{
-    [self setBtnBarDeleteDownloadedData:nil];
-    [self setTableView:nil];
-    [self setLabelDisclaimer:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
    // NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[self.timelineDoc.fileURL path]   error:nil];
@@ -169,7 +159,6 @@
     for (int i = 0; i < arrayOfFilesURL.count; i++) {
         NSError *error;
         NSDictionary *dictAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[[arrayOfFilesURL objectAtIndex:i] path] error:&error];
-        NSLog(@"dictAttributes: %@", [dictAttributes valueForKey:NSFileSize]);
         sum += [[dictAttributes valueForKey:NSFileSize] intValue];
     }
     sizeOfFiles = [NSNumber numberWithDouble:sum / 1000000.0];

@@ -12,4 +12,5 @@
 - (IBAction)btnRefreshPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnBarDeleteDownloadedData;
 - (IBAction)btnBarDeleteDownloadedDataPressed:(id)sender;
+-(void) getListOfAccounts;
 @end

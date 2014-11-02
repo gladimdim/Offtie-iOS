@@ -22,6 +22,11 @@
 		F287E4B318A03424006F32B8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F287E4B218A03424006F32B8 /* Social.framework */; };
 		F292E41B166390D6004AEEC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E417166390D6004AEEC8 /* InfoPlist.strings */; };
 		F292E41C166390D6004AEEC8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F292E419166390D6004AEEC8 /* Localizable.strings */; };
+		F2A250801A057E3E002281B9 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A2507F1A057E3E002281B9 /* NotificationCenter.framework */; };
+		F2A250861A057E3E002281B9 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A250851A057E3E002281B9 /* TodayViewController.m */; };
+		F2A250881A057E3E002281B9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2A250871A057E3E002281B9 /* MainInterface.storyboard */; };
+		F2A2508B1A057E3E002281B9 /* OfftieToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F2A2507E1A057E3D002281B9 /* OfftieToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F2A250901A058664002281B9 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F23A0BA515EA8C6D00C99909 /* Accounts.framework */; };
 		F2B27C2616E3F2B0005039EC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99341650035900B4F837 /* Default-568h@2x.png */; };
 		F2B27C2716E3F2C4005039EC /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99351650035900B4F837 /* Default.png */; };
 		F2B27C2816E3F2E2005039EC /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99361650035900B4F837 /* Default@2x.png */; };
@@ -76,6 +81,30 @@
 		F2FD993B1650035900B4F837 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = F2FD99371650035900B4F837 /* iTunesArtwork */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F2A250891A057E3E002281B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2FB92DD15EA705600A5DE37 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2A2507D1A057E3D002281B9;
+			remoteInfo = OfftieToday;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F2A2508F1A057E3E002281B9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2A2508B1A057E3E002281B9 /* OfftieToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F223D1F816E3C7C800389437 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad_en.storyboard; sourceTree = "<group>"; };
 		F223D20B16E3CD3E00389437 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = Localizable.strings; sourceTree = "<group>"; };
@@ -99,6 +128,14 @@
 		F292E418166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F292E41A166390D6004AEEC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		F292E42216639139004AEEC8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
+		F2A2507E1A057E3D002281B9 /* OfftieToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OfftieToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A2507F1A057E3E002281B9 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F2A250831A057E3E002281B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F2A250841A057E3E002281B9 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		F2A250851A057E3E002281B9 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		F2A250871A057E3E002281B9 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		F2A250911A0594D9002281B9 /* Offtie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Offtie.entitlements; sourceTree = "<group>"; };
+		F2A250921A0599AD002281B9 /* OfftieToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OfftieToday.entitlements; sourceTree = "<group>"; };
 		F2C35BDD1A0026D8003AD7E4 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "Offtie/Resources/Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		F2C35BDF1A0026E8003AD7E4 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "Offtie/Resources/Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		F2C35BE11A002709003AD7E4 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "Offtie/Resources/Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -130,6 +167,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F2A2507B1A057E3D002281B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A250901A058664002281B9 /* Accounts.framework in Frameworks */,
+				F2A250801A057E3E002281B9 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2FB92E315EA705600A5DE37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,6 +266,26 @@
 			path = ru.lproj;
 			sourceTree = "<group>";
 		};
+		F2A250811A057E3E002281B9 /* OfftieToday */ = {
+			isa = PBXGroup;
+			children = (
+				F2A250921A0599AD002281B9 /* OfftieToday.entitlements */,
+				F2A250841A057E3E002281B9 /* TodayViewController.h */,
+				F2A250851A057E3E002281B9 /* TodayViewController.m */,
+				F2A250871A057E3E002281B9 /* MainInterface.storyboard */,
+				F2A250821A057E3E002281B9 /* Supporting Files */,
+			);
+			path = OfftieToday;
+			sourceTree = "<group>";
+		};
+		F2A250821A057E3E002281B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2A250831A057E3E002281B9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F2FB92DB15EA705600A5DE37 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +293,7 @@
 				F23A0BA815EA8CE400C99909 /* Twitter.framework */,
 				F23A0BA515EA8C6D00C99909 /* Accounts.framework */,
 				F2FB92F015EA705600A5DE37 /* Offtie */,
+				F2A250811A057E3E002281B9 /* OfftieToday */,
 				F2FB92E915EA705600A5DE37 /* Frameworks */,
 				F2FB92E715EA705600A5DE37 /* Products */,
 			);
@@ -237,6 +304,7 @@
 			children = (
 				F2FB92E615EA705600A5DE37 /* Offtie.app */,
 				F2FD992F164EE23800B4F837 /* Offtie.app */,
+				F2A2507E1A057E3D002281B9 /* OfftieToday.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +316,7 @@
 				F2FB92EA15EA705600A5DE37 /* UIKit.framework */,
 				F2FB92EC15EA705600A5DE37 /* Foundation.framework */,
 				F2FB92EE15EA705600A5DE37 /* CoreGraphics.framework */,
+				F2A2507F1A057E3E002281B9 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -255,6 +324,7 @@
 		F2FB92F015EA705600A5DE37 /* Offtie */ = {
 			isa = PBXGroup;
 			children = (
+				F2A250911A0594D9002281B9 /* Offtie.entitlements */,
 				F278D95E162C0F2A006FED6B /* Views */,
 				F2FB92F915EA705600A5DE37 /* OfftieAppDelegate.h */,
 				F2FB92FA15EA705600A5DE37 /* OfftieAppDelegate.m */,
@@ -288,6 +358,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F2A2507D1A057E3D002281B9 /* OfftieToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2A2508E1A057E3E002281B9 /* Build configuration list for PBXNativeTarget "OfftieToday" */;
+			buildPhases = (
+				F2A2507A1A057E3D002281B9 /* Sources */,
+				F2A2507B1A057E3D002281B9 /* Frameworks */,
+				F2A2507C1A057E3D002281B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OfftieToday;
+			productName = OfftieToday;
+			productReference = F2A2507E1A057E3D002281B9 /* OfftieToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F2FB92E515EA705600A5DE37 /* Offtie */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2FB930715EA705600A5DE37 /* Build configuration list for PBXNativeTarget "Offtie" */;
@@ -295,10 +382,12 @@
 				F2FB92E215EA705600A5DE37 /* Sources */,
 				F2FB92E315EA705600A5DE37 /* Frameworks */,
 				F2FB92E415EA705600A5DE37 /* Resources */,
+				F2A2508F1A057E3E002281B9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F2A2508A1A057E3E002281B9 /* PBXTargetDependency */,
 			);
 			name = Offtie;
 			productName = Offtie;
@@ -332,8 +421,22 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Dmytro Gladkyi";
 				TargetAttributes = {
+					F2A2507D1A057E3D002281B9 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 29UL2Y36R9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					F2FB92E515EA705600A5DE37 = {
 						DevelopmentTeam = 29UL2Y36R9;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F2FD990E164EE23800B4F837 = {
 						DevelopmentTeam = 29UL2Y36R9;
@@ -358,11 +461,20 @@
 			targets = (
 				F2FB92E515EA705600A5DE37 /* Offtie */,
 				F2FD990E164EE23800B4F837 /* Offtie-AppStore */,
+				F2A2507D1A057E3D002281B9 /* OfftieToday */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F2A2507C1A057E3D002281B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A250881A057E3E002281B9 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2FB92E415EA705600A5DE37 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +533,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F2A2507A1A057E3D002281B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2A250861A057E3E002281B9 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2FB92E215EA705600A5DE37 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +572,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2A2508A1A057E3E002281B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2A2507D1A057E3D002281B9 /* OfftieToday */;
+			targetProxy = F2A250891A057E3E002281B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F223D1C116E3B2ED00389437 /* MainStoryboard_iPad_en.storyboard */ = {
@@ -513,6 +641,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F2A2508C1A057E3E002281B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = OfftieToday/OfftieToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OfftieToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F2A2508D1A057E3E002281B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_ENTITLEMENTS = OfftieToday/OfftieToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = OfftieToday/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		F2FB930515EA705600A5DE37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -589,6 +766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Offtie/Offtie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -607,6 +785,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Offtie/Offtie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -615,7 +794,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "25A3748B-5661-40F3-92E5-4597D58396CD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "728bf289-bf8d-4191-94d9-1bce3407aa74";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
@@ -658,6 +837,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F2A2508E1A057E3E002281B9 /* Build configuration list for PBXNativeTarget "OfftieToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2A2508C1A057E3E002281B9 /* Debug */,
+				F2A2508D1A057E3E002281B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F2FB92E015EA705600A5DE37 /* Build configuration list for PBXProject "Offtie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

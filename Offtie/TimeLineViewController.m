@@ -14,6 +14,7 @@
 @property (strong) NSMutableArray *arrayOfHTMLDicts;
 @property (strong) NSData *twitterResponseData;
 @property (strong, nonatomic) PageViewController *pageViewController;
+@property NSUserDefaults *sharedDefaults;
 @end
 
 @implementation TimeLineViewController
@@ -44,6 +45,7 @@ NSUInteger DeviceSystemMajorVersion() {
         UINavigationController *navController = [self.splitViewController.viewControllers lastObject];
         self.pageViewController = (PageViewController *) [navController.viewControllers lastObject];
     }
+    self.sharedDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.gladimdim.Offtie"];
     [self.btnRefreshDownload setTitle:NSLocalizedString(@"Refresh & Download", nil)];
 }
 
@@ -144,7 +146,11 @@ NSUInteger DeviceSystemMajorVersion() {
     NSLog(@"date update: %@", currentDate);
     
     [[NSUserDefaults standardUserDefaults] setObject:currentDate forKey:[NSString stringWithFormat:@"%@-%@", self.twitterAccount.username, LAST_DOWNLOAD_DATE_TIME]];
+    [self.sharedDefaults setObject:currentDate forKey:[NSString stringWithFormat:@"%@-%@", self.twitterAccount.username, LAST_DOWNLOAD_DATE_TIME]];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.sharedDefaults synchronize];
+    NSLog(@"shared: %@", [self.sharedDefaults objectForKey:[NSString stringWithFormat:@"%@-%@", self.twitterAccount.username, LAST_DOWNLOAD_DATE_TIME]]);
+    NSLog(@"all dict: %@", [self.sharedDefaults dictionaryRepresentation]);
     return currentDate;
 }
 
@@ -209,8 +215,6 @@ NSUInteger DeviceSystemMajorVersion() {
                 self.btnRefreshDownload.enabled = YES;
             });
         }
-        NSLog(@"response: %d", [urlResponse statusCode]);
-        NSLog(@"response size: %u", [responseData length]);
         if ([urlResponse statusCode] == 200) {
             self.twitterResponseData = responseData;
             NSArray *timeline = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
