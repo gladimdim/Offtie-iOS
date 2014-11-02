@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Offtie
+
+  Created by Dmytro Gladkyi on 11/2/14.
+  Copyright (c) 2014 Dmytro Gladkyi. All rights reserved.
+*/
+
+"Updated on: %@" = "Updated on: %@";
+
+"Never" = "Never";

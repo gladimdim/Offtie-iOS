@@ -12,8 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    application.applicationIconBadgeNumber = 0;
-    
+
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *) self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
@@ -33,16 +32,6 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:2];
-    [comps setMonth:12];
-    [comps setYear:2012];
-    [comps setHour:17];
-    [comps setMinute:20];
-    [comps setSecond:00];
-   // NSDate *date = [NSDate dateWithTimeIntervalSinceNow:60];
-  //  [self scheduleAlarmForDate:date];
-    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
