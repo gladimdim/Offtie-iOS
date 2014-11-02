@@ -53,14 +53,14 @@
     // If an error is encountered, use NCUpdateResultFailed
     // If there's no update required, use NCUpdateResultNoData
     // If there's an update, use NCUpdateResultNewData
-    NSLog(@"ext2");
     [self updateTwitterAccountList];
     completionHandler(NCUpdateResultNewData);
 }
 
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.accounts.count;
+    NSInteger count = self.accounts.count;
+    return count < 3 ? self.accounts.count : 3;
 }
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,14 +68,10 @@
     if (indexPath.row < self.accounts.count) {
         ACAccount *account = self.accounts[indexPath.row];
         NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.gladimdim.Offtie"];
-        NSLog(@"all dict before: %@", [defaults dictionaryRepresentation]);
         NSDate *lastUpdateDate = [defaults objectForKey:[NSString stringWithFormat:@"%@-%@", account.username, LAST_DOWNLOAD_DATE_TIME]];
-        NSLog(@"date: %@", lastUpdateDate);
         NSString *dateString = [NSDateFormatter localizedStringFromDate:lastUpdateDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ updated %@", account.username, dateString];
-        [defaults setObject:@"lol" forKey:@"keylol"];
-        NSLog(@"all dict after: %@", [defaults dictionaryRepresentation]);
-        cell.detailTextLabel.text = dateString;
+        cell.textLabel.text = account.username;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Last updated %@", dateString ? dateString : @"Never"];
     }
     
 
