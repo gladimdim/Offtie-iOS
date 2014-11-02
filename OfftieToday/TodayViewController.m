@@ -57,8 +57,7 @@
     completionHandler(NCUpdateResultNewData);
 }
 
-
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger count = self.accounts.count;
     return count < 3 ? self.accounts.count : 3;
 }
@@ -71,13 +70,12 @@
         NSDate *lastUpdateDate = [defaults objectForKey:[NSString stringWithFormat:@"%@-%@", account.username, LAST_DOWNLOAD_DATE_TIME]];
         NSString *dateString = [NSDateFormatter localizedStringFromDate:lastUpdateDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
         cell.textLabel.text = account.username;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"Last updated %@", dateString ? dateString : @"Never"];
+        cell.detailTextLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Updated on: %@", nil), dateString ? dateString : NSLocalizedString(@"Never", nil) ];
     }
     
 
     
     return cell;
 }
-
 
 @end
