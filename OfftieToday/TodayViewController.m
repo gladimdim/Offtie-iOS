@@ -10,7 +10,7 @@
 #import <NotificationCenter/NotificationCenter.h>
 #import <Accounts/Accounts.h>
 
-@interface TodayViewController () <NCWidgetProviding, UITableViewDataSource>
+@interface TodayViewController () <NCWidgetProviding, UITableViewDataSource, UITableViewDelegate>
 @property NSArray *accounts;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -73,9 +73,13 @@
         cell.detailTextLabel.text = [NSString stringWithFormat: NSLocalizedString(@"Updated on: %@", nil), dateString ? dateString : NSLocalizedString(@"Never", nil) ];
     }
     
-
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"opened");
+    [self.extensionContext openURL:[NSURL URLWithString:@"offtie://"] completionHandler:nil];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
